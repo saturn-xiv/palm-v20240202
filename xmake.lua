@@ -1,13 +1,14 @@
 add_rules("mode.debug", "mode.release")
 
 add_requires("spdlog", "argparse", 
-    "libevent", "boost",
+    "openssl3", "libevent", 
     "toml++", 
     "amqp-cpp", "pahomqttcpp", "cppzmq",
-    "redis-plus-plus", "sqlitecpp", "libpqxx",
+    "sqlitecpp", "mariadb-connector-c", "libpqxx", "redis-plus-plus", "mongo-c-driver",
     "cpp-httplib", "nlohmann_json", "inja",
     "grpc"
 )
+-- FIXME mongo-cxx-driver mysqlpp boost
 
 target("salvia")
     set_kind("binary")
@@ -20,7 +21,10 @@ target("fig")
     set_kind("binary")
     set_languages("c++20")
     add_packages("spdlog", "argparse", "toml++", "nlohmann_json", "inja",
-        "amqp-cpp", "redis-plus-plus", "sqlitecpp", "libpqxx"
+        "amqp-cpp", "pahomqttcpp", "cppzmq",
+        "sqlitecpp", "mariadb-connector-c", "libpqxx", "redis-plus-plus", "mongo-c-driver",
+        "cpp-httplib", "nlohmann_json", "inja",
+        "grpc"
     )
     add_includedirs("gourd/include", "fig/include")
     add_files("fig/src/main.cpp")
@@ -28,6 +32,6 @@ target("fig")
 target("loquat")
     set_kind("binary")
     set_languages("c++20")
-    add_packages("libevent")
+    add_packages("spdlog", "argparse", "openssl3", "libevent")
     add_includedirs("gourd/include", "loquat/include")
     add_files("loquat/src/main.cpp")
