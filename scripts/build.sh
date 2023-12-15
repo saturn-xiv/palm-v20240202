@@ -20,7 +20,7 @@ inline static const std::string AUTHOR = "$(git config --get user.name)<$(git co
 EOF
     echo "build palm for x86_64"
     xmake f --toolchain=clang -c
-    xmake -y
+    xmake
 
     # echo "build palm for riscv64"
     # xmake f -p cross --cross=riscv64-linux-gnu- -c

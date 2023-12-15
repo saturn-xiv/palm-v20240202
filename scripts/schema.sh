@@ -22,7 +22,7 @@ function generate_goard() {
         --cpp_out=$target --grpc_out=$target \
         --plugin=protoc-gen-grpc=$PROTOBUF_ROOT/bin/grpc_cpp_plugin \
         $PALM_PROTOCOLS/*.proto
-    mv $target/*.h $target/include/palm/
+    mv $target/*.h $target/include/
     mv $target/*.cc $target/*.cpp $target/src/
 }
 
