@@ -19,4 +19,5 @@ include(cmake/Config.cmake)
 include(cmake/Third.cmake)
 
 add_subdirectory(gourd)
-
+add_subdirectory(daffodil)
+add_subdirectory(tests)
