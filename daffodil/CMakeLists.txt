@@ -1,5 +1,5 @@
-file(GLOB HEADER_LIST CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/include/palm/*.hpp")
-file(GLOB SOURCE_LIST CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/src/*.cpp")
+file(GLOB HEADER_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/palm/*.hpp")
+file(GLOB SOURCE_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 add_library(daffodil STATIC ${SOURCE_LIST})
 
@@ -45,7 +45,7 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(tomlplusplus REQUIRED IMPORTED_TARGET tomlplusplus)
 
 target_include_directories(daffodil PUBLIC
-  ${PROJECT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
 
   ${CPPCODEC_INCLUDE_DIRS}
   ${CPP_HTTPLIB_INCLUDE_DIRS}
@@ -77,7 +77,7 @@ target_link_libraries(daffodil PUBLIC gourd
 )
 
 source_group(
-  TREE "${PROJECT_SOURCE_DIR}/include"
+  TREE "${CMAKE_CURRENT_SOURCE_DIR}/include"
   PREFIX "Header Files"
   FILES ${HEADER_LIST}
 )

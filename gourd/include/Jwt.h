@@ -22,8 +22,8 @@ namespace loquat { namespace v1 {
 class JwtIf {
  public:
   virtual ~JwtIf() {}
-  virtual void sign(std::string& _return, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) = 0;
-  virtual void verify(JwtVerfifyResponse& _return, const std::string& token, const std::string& issuer, const std::string& audience) = 0;
+  virtual void sign(std::string& _return, const std::string& app_id, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) = 0;
+  virtual void verify(JwtVerfifyResponse& _return, const std::string& app_id, const std::string& token, const std::string& issuer, const std::string& audience) = 0;
 };
 
 class JwtIfFactory {
@@ -53,16 +53,17 @@ class JwtIfSingletonFactory : virtual public JwtIfFactory {
 class JwtNull : virtual public JwtIf {
  public:
   virtual ~JwtNull() {}
-  void sign(std::string& /* _return */, const std::string& /* issuer */, const std::string& /* subject */, const std::string& /* audience */, const int64_t /* ttl */, const std::string& /* payload */) override {
+  void sign(std::string& /* _return */, const std::string& /* app_id */, const std::string& /* issuer */, const std::string& /* subject */, const std::string& /* audience */, const int64_t /* ttl */, const std::string& /* payload */) override {
     return;
   }
-  void verify(JwtVerfifyResponse& /* _return */, const std::string& /* token */, const std::string& /* issuer */, const std::string& /* audience */) override {
+  void verify(JwtVerfifyResponse& /* _return */, const std::string& /* app_id */, const std::string& /* token */, const std::string& /* issuer */, const std::string& /* audience */) override {
     return;
   }
 };
 
 typedef struct _Jwt_sign_args__isset {
-  _Jwt_sign_args__isset() : issuer(false), subject(false), audience(false), ttl(false), payload(false) {}
+  _Jwt_sign_args__isset() : app_id(false), issuer(false), subject(false), audience(false), ttl(false), payload(false) {}
+  bool app_id :1;
   bool issuer :1;
   bool subject :1;
   bool audience :1;
@@ -76,7 +77,8 @@ class Jwt_sign_args {
   Jwt_sign_args(const Jwt_sign_args&);
   Jwt_sign_args& operator=(const Jwt_sign_args&);
   Jwt_sign_args() noexcept
-                : issuer(),
+                : app_id(),
+                  issuer(),
                   subject(),
                   audience(),
                   ttl(0),
@@ -84,6 +86,7 @@ class Jwt_sign_args {
   }
 
   virtual ~Jwt_sign_args() noexcept;
+  std::string app_id;
   std::string issuer;
   std::string subject;
   std::string audience;
@@ -91,6 +94,8 @@ class Jwt_sign_args {
   std::string payload;
 
   _Jwt_sign_args__isset __isset;
+
+  void __set_app_id(const std::string& val);
 
   void __set_issuer(const std::string& val);
 
@@ -104,6 +109,8 @@ class Jwt_sign_args {
 
   bool operator == (const Jwt_sign_args & rhs) const
   {
+    if (!(app_id == rhs.app_id))
+      return false;
     if (!(issuer == rhs.issuer))
       return false;
     if (!(subject == rhs.subject))
@@ -133,6 +140,7 @@ class Jwt_sign_pargs {
 
 
   virtual ~Jwt_sign_pargs() noexcept;
+  const std::string* app_id;
   const std::string* issuer;
   const std::string* subject;
   const std::string* audience;
@@ -200,7 +208,8 @@ class Jwt_sign_presult {
 };
 
 typedef struct _Jwt_verify_args__isset {
-  _Jwt_verify_args__isset() : token(false), issuer(false), audience(false) {}
+  _Jwt_verify_args__isset() : app_id(false), token(false), issuer(false), audience(false) {}
+  bool app_id :1;
   bool token :1;
   bool issuer :1;
   bool audience :1;
@@ -212,17 +221,21 @@ class Jwt_verify_args {
   Jwt_verify_args(const Jwt_verify_args&);
   Jwt_verify_args& operator=(const Jwt_verify_args&);
   Jwt_verify_args() noexcept
-                  : token(),
+                  : app_id(),
+                    token(),
                     issuer(),
                     audience() {
   }
 
   virtual ~Jwt_verify_args() noexcept;
+  std::string app_id;
   std::string token;
   std::string issuer;
   std::string audience;
 
   _Jwt_verify_args__isset __isset;
+
+  void __set_app_id(const std::string& val);
 
   void __set_token(const std::string& val);
 
@@ -232,6 +245,8 @@ class Jwt_verify_args {
 
   bool operator == (const Jwt_verify_args & rhs) const
   {
+    if (!(app_id == rhs.app_id))
+      return false;
     if (!(token == rhs.token))
       return false;
     if (!(issuer == rhs.issuer))
@@ -257,6 +272,7 @@ class Jwt_verify_pargs {
 
 
   virtual ~Jwt_verify_pargs() noexcept;
+  const std::string* app_id;
   const std::string* token;
   const std::string* issuer;
   const std::string* audience;
@@ -345,11 +361,11 @@ class JwtClient : virtual public JwtIf {
   std::shared_ptr< ::apache::thrift::protocol::TProtocol> getOutputProtocol() {
     return poprot_;
   }
-  void sign(std::string& _return, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) override;
-  void send_sign(const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload);
+  void sign(std::string& _return, const std::string& app_id, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) override;
+  void send_sign(const std::string& app_id, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload);
   void recv_sign(std::string& _return);
-  void verify(JwtVerfifyResponse& _return, const std::string& token, const std::string& issuer, const std::string& audience) override;
-  void send_verify(const std::string& token, const std::string& issuer, const std::string& audience);
+  void verify(JwtVerfifyResponse& _return, const std::string& app_id, const std::string& token, const std::string& issuer, const std::string& audience) override;
+  void send_verify(const std::string& app_id, const std::string& token, const std::string& issuer, const std::string& audience);
   void recv_verify(JwtVerfifyResponse& _return);
  protected:
   std::shared_ptr< ::apache::thrift::protocol::TProtocol> piprot_;
@@ -401,23 +417,23 @@ class JwtMultiface : virtual public JwtIf {
     ifaces_.push_back(iface);
   }
  public:
-  void sign(std::string& _return, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) override {
+  void sign(std::string& _return, const std::string& app_id, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) override {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->sign(_return, issuer, subject, audience, ttl, payload);
+      ifaces_[i]->sign(_return, app_id, issuer, subject, audience, ttl, payload);
     }
-    ifaces_[i]->sign(_return, issuer, subject, audience, ttl, payload);
+    ifaces_[i]->sign(_return, app_id, issuer, subject, audience, ttl, payload);
     return;
   }
 
-  void verify(JwtVerfifyResponse& _return, const std::string& token, const std::string& issuer, const std::string& audience) override {
+  void verify(JwtVerfifyResponse& _return, const std::string& app_id, const std::string& token, const std::string& issuer, const std::string& audience) override {
     size_t sz = ifaces_.size();
     size_t i = 0;
     for (; i < (sz - 1); ++i) {
-      ifaces_[i]->verify(_return, token, issuer, audience);
+      ifaces_[i]->verify(_return, app_id, token, issuer, audience);
     }
-    ifaces_[i]->verify(_return, token, issuer, audience);
+    ifaces_[i]->verify(_return, app_id, token, issuer, audience);
     return;
   }
 
@@ -453,11 +469,11 @@ class JwtConcurrentClient : virtual public JwtIf {
   std::shared_ptr< ::apache::thrift::protocol::TProtocol> getOutputProtocol() {
     return poprot_;
   }
-  void sign(std::string& _return, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) override;
-  int32_t send_sign(const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload);
+  void sign(std::string& _return, const std::string& app_id, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload) override;
+  int32_t send_sign(const std::string& app_id, const std::string& issuer, const std::string& subject, const std::string& audience, const int64_t ttl, const std::string& payload);
   void recv_sign(std::string& _return, const int32_t seqid);
-  void verify(JwtVerfifyResponse& _return, const std::string& token, const std::string& issuer, const std::string& audience) override;
-  int32_t send_verify(const std::string& token, const std::string& issuer, const std::string& audience);
+  void verify(JwtVerfifyResponse& _return, const std::string& app_id, const std::string& token, const std::string& issuer, const std::string& audience) override;
+  int32_t send_verify(const std::string& app_id, const std::string& token, const std::string& issuer, const std::string& audience);
   void recv_verify(JwtVerfifyResponse& _return, const int32_t seqid);
  protected:
   std::shared_ptr< ::apache::thrift::protocol::TProtocol> piprot_;
