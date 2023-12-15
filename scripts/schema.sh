@@ -24,6 +24,21 @@ function generate_goard() {
         $PALM_PROTOCOLS/*.proto
     mv $target/*.h $target/include/palm/
     mv $target/*.cc $target/*.cpp $target/src/
+
+    cat >$target/include/palm/version.hpp <<EOF
+#pragma once
+
+#include <string>
+
+// clang-format off
+namespace palm {
+inline static const std::string HOMEPAGE = "$(git remote get-url origin)";
+inline static const std::string GIT_VERSION = "$(git describe --tags --always --dirty --first-parent)";
+inline static const std::string BUILD_TIME = "$(date -R)";
+inline static const std::string AUTHOR = "$(git config --get user.name)<$(git config --get user.email)>";
+}
+// clang-format on
+EOF
 }
 
 generate_goard
