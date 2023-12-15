@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.22)
+include(ExternalProject)
+include(FetchContent)
+
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+
+project(palm
+    VERSION 2023.12.16
+    DESCRIPTION "A total free education & translation & ops solution."
+    HOMEPAGE_URL "https://github.com/saturn-xiv/palm"
+    LANGUAGES C CXX)
+# --------------------------------------------------------
+# FIXME https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100900
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+# --------------------------------------------------------
+include(cmake/Config.cmake)
+include(cmake/Third.cmake)
+
+add_subdirectory(gourd)
+

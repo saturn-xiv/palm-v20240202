@@ -40,7 +40,7 @@ function build_grpc() {
     make install -C $BUILD_ROOT
 }
 
-build_grpc "v1.51.3" "v3.19.4"
+build_grpc "v1.51.1" "v3.21.12"
 
 echo "done."
 exit 0

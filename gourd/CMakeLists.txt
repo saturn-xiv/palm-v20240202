@@ -1,0 +1,32 @@
+find_package(Libevent CONFIG REQUIRED)
+find_package(re2 CONFIG REQUIRED)
+find_package(gRPC CONFIG REQUIRED)
+
+
+file(GLOB HEADER_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+file(GLOB THRIFT_SOURCE_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+file(GLOB GRPC_SOURCE_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc")
+
+add_library(gourd STATIC ${THRIFT_SOURCE_LIST} ${GRPC_SOURCE_LIST})
+target_link_directories(gourd PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/lib)
+
+target_link_libraries(gourd PUBLIC dl m
+  re2::re2
+  gRPC::grpc gRPC::grpc++ gRPC::grpc++_alts # gRPC::grpc++_reflection
+  libevent::core libevent::extra libevent::pthreads
+  thrift thriftnb thriftz
+)
+
+target_include_directories(gourd PUBLIC
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  
+  ${thrift_SOURCE_DIR}/lib/cpp/src
+  ${thrift_SOURCE_DIR}/compiler/cpp/src
+  ${thrift_BINARY_DIR}
+)
+
+source_group(
+  TREE "${CMAKE_CURRENT_SOURCE_DIR}/include"
+  PREFIX "Header Files"
+  FILES ${HEADER_LIST}
+)

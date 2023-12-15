@@ -16,295 +16,316 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace palm {
 namespace metasequoia {
 namespace v1 {
-constexpr Permission::Permission(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : action_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , object_(nullptr)
-  , _oneof_case_{}{}
+PROTOBUF_CONSTEXPR Permission::Permission(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.action_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.object_)*/nullptr
+  , /*decltype(_impl_.subject_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct PermissionDefaultTypeInternal {
-  constexpr PermissionDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR PermissionDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~PermissionDefaultTypeInternal() {}
   union {
     Permission _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PermissionDefaultTypeInternal _Permission_default_instance_;
-constexpr Resource::Resource(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : type_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , _oneof_case_{}{}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PermissionDefaultTypeInternal _Permission_default_instance_;
+PROTOBUF_CONSTEXPR Resource::Resource(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.type_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.id_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct ResourceDefaultTypeInternal {
-  constexpr ResourceDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ResourceDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ResourceDefaultTypeInternal() {}
   union {
     Resource _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ResourceDefaultTypeInternal _Resource_default_instance_;
-constexpr Role::Role(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : _oneof_case_{}{}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ResourceDefaultTypeInternal _Resource_default_instance_;
+PROTOBUF_CONSTEXPR Role::Role(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.by_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct RoleDefaultTypeInternal {
-  constexpr RoleDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RoleDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RoleDefaultTypeInternal() {}
   union {
     Role _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RoleDefaultTypeInternal _Role_default_instance_;
-constexpr User::User(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : _oneof_case_{}{}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RoleDefaultTypeInternal _Role_default_instance_;
+PROTOBUF_CONSTEXPR User::User(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.by_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_._oneof_case_)*/{}} {}
 struct UserDefaultTypeInternal {
-  constexpr UserDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR UserDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~UserDefaultTypeInternal() {}
   union {
     User _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UserDefaultTypeInternal _User_default_instance_;
-constexpr RbacCanRequest::RbacCanRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : action_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , object_(nullptr)
-  , user_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserDefaultTypeInternal _User_default_instance_;
+PROTOBUF_CONSTEXPR RbacCanRequest::RbacCanRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.action_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.object_)*/nullptr
+  , /*decltype(_impl_.user_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacCanRequestDefaultTypeInternal {
-  constexpr RbacCanRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacCanRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacCanRequestDefaultTypeInternal() {}
   union {
     RbacCanRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacCanRequestDefaultTypeInternal _RbacCanRequest_default_instance_;
-constexpr RbacHasRequest::RbacHasRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : role_(nullptr)
-  , user_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacCanRequestDefaultTypeInternal _RbacCanRequest_default_instance_;
+PROTOBUF_CONSTEXPR RbacHasRequest::RbacHasRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.role_)*/nullptr
+  , /*decltype(_impl_.user_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacHasRequestDefaultTypeInternal {
-  constexpr RbacHasRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacHasRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacHasRequestDefaultTypeInternal() {}
   union {
     RbacHasRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacHasRequestDefaultTypeInternal _RbacHasRequest_default_instance_;
-constexpr RbacPermissionItem::RbacPermissionItem(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : action_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , resource_(nullptr){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacHasRequestDefaultTypeInternal _RbacHasRequest_default_instance_;
+PROTOBUF_CONSTEXPR RbacPermissionItem::RbacPermissionItem(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.action_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.resource_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacPermissionItemDefaultTypeInternal {
-  constexpr RbacPermissionItemDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacPermissionItemDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacPermissionItemDefaultTypeInternal() {}
   union {
     RbacPermissionItem _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacPermissionItemDefaultTypeInternal _RbacPermissionItem_default_instance_;
-constexpr RbacPermissionsForUserRequest::RbacPermissionsForUserRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : permissions_()
-  , user_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacPermissionItemDefaultTypeInternal _RbacPermissionItem_default_instance_;
+PROTOBUF_CONSTEXPR RbacPermissionsForUserRequest::RbacPermissionsForUserRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.permissions_)*/{}
+  , /*decltype(_impl_.user_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacPermissionsForUserRequestDefaultTypeInternal {
-  constexpr RbacPermissionsForUserRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacPermissionsForUserRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacPermissionsForUserRequestDefaultTypeInternal() {}
   union {
     RbacPermissionsForUserRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacPermissionsForUserRequestDefaultTypeInternal _RbacPermissionsForUserRequest_default_instance_;
-constexpr RbacPermissionsForRoleRequest::RbacPermissionsForRoleRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : permissions_()
-  , role_(nullptr){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacPermissionsForUserRequestDefaultTypeInternal _RbacPermissionsForUserRequest_default_instance_;
+PROTOBUF_CONSTEXPR RbacPermissionsForRoleRequest::RbacPermissionsForRoleRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.permissions_)*/{}
+  , /*decltype(_impl_.role_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacPermissionsForRoleRequestDefaultTypeInternal {
-  constexpr RbacPermissionsForRoleRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacPermissionsForRoleRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacPermissionsForRoleRequestDefaultTypeInternal() {}
   union {
     RbacPermissionsForRoleRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacPermissionsForRoleRequestDefaultTypeInternal _RbacPermissionsForRoleRequest_default_instance_;
-constexpr RbacRolesForUserRequest::RbacRolesForUserRequest(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : roles_()
-  , user_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacPermissionsForRoleRequestDefaultTypeInternal _RbacPermissionsForRoleRequest_default_instance_;
+PROTOBUF_CONSTEXPR RbacRolesForUserRequest::RbacRolesForUserRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.roles_)*/{}
+  , /*decltype(_impl_.user_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacRolesForUserRequestDefaultTypeInternal {
-  constexpr RbacRolesForUserRequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacRolesForUserRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacRolesForUserRequestDefaultTypeInternal() {}
   union {
     RbacRolesForUserRequest _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacRolesForUserRequestDefaultTypeInternal _RbacRolesForUserRequest_default_instance_;
-constexpr RbacRolesResponse::RbacRolesResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : items_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacRolesForUserRequestDefaultTypeInternal _RbacRolesForUserRequest_default_instance_;
+PROTOBUF_CONSTEXPR RbacRolesResponse::RbacRolesResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.items_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacRolesResponseDefaultTypeInternal {
-  constexpr RbacRolesResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacRolesResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacRolesResponseDefaultTypeInternal() {}
   union {
     RbacRolesResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacRolesResponseDefaultTypeInternal _RbacRolesResponse_default_instance_;
-constexpr RbacPermissionsResponse::RbacPermissionsResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : items_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacRolesResponseDefaultTypeInternal _RbacRolesResponse_default_instance_;
+PROTOBUF_CONSTEXPR RbacPermissionsResponse::RbacPermissionsResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.items_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacPermissionsResponseDefaultTypeInternal {
-  constexpr RbacPermissionsResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacPermissionsResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacPermissionsResponseDefaultTypeInternal() {}
   union {
     RbacPermissionsResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacPermissionsResponseDefaultTypeInternal _RbacPermissionsResponse_default_instance_;
-constexpr RbacUsersResponse::RbacUsersResponse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : items_(){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacPermissionsResponseDefaultTypeInternal _RbacPermissionsResponse_default_instance_;
+PROTOBUF_CONSTEXPR RbacUsersResponse::RbacUsersResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.items_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RbacUsersResponseDefaultTypeInternal {
-  constexpr RbacUsersResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR RbacUsersResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~RbacUsersResponseDefaultTypeInternal() {}
   union {
     RbacUsersResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RbacUsersResponseDefaultTypeInternal _RbacUsersResponse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 RbacUsersResponseDefaultTypeInternal _RbacUsersResponse_default_instance_;
 }  // namespace v1
 }  // namespace metasequoia
 }  // namespace palm
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_metasequoia_2eproto[13];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_metasequoia_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_metasequoia_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_metasequoia_2eproto[13];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_metasequoia_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_metasequoia_2eproto = nullptr;
 
 const uint32_t TableStruct_metasequoia_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, object_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, action_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, subject_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, _impl_.object_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, _impl_.action_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Permission, _impl_.subject_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Resource, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Resource, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Resource, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Resource, type_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Resource, id_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Resource, _impl_.type_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Resource, _impl_.id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Role, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Role, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Role, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Role, by_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::Role, _impl_.by_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::User, _internal_metadata_),
   ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::User, _oneof_case_[0]),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::User, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::User, by_),
+  ::_pbi::kInvalidFieldOffsetTag,
+  ::_pbi::kInvalidFieldOffsetTag,
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::User, _impl_.by_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacCanRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacCanRequest, user_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacCanRequest, object_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacCanRequest, action_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacCanRequest, _impl_.user_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacCanRequest, _impl_.object_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacCanRequest, _impl_.action_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacHasRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacHasRequest, user_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacHasRequest, role_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacHasRequest, _impl_.user_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacHasRequest, _impl_.role_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionItem, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionItem, action_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionItem, resource_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionItem, _impl_.action_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionItem, _impl_.resource_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForUserRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForUserRequest, user_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForUserRequest, permissions_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForUserRequest, _impl_.user_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForUserRequest, _impl_.permissions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForRoleRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForRoleRequest, role_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForRoleRequest, permissions_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForRoleRequest, _impl_.role_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsForRoleRequest, _impl_.permissions_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesForUserRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesForUserRequest, user_),
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesForUserRequest, roles_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesForUserRequest, _impl_.user_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesForUserRequest, _impl_.roles_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesResponse, items_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacRolesResponse, _impl_.items_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsResponse, items_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacPermissionsResponse, _impl_.items_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacUsersResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacUsersResponse, items_),
+  PROTOBUF_FIELD_OFFSET(::palm::metasequoia::v1::RbacUsersResponse, _impl_.items_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::palm::metasequoia::v1::Permission)},
   { 11, -1, -1, sizeof(::palm::metasequoia::v1::Resource)},
   { 21, -1, -1, sizeof(::palm::metasequoia::v1::Role)},
@@ -320,20 +341,20 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 103, -1, -1, sizeof(::palm::metasequoia::v1::RbacUsersResponse)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_Permission_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_Resource_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_Role_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_User_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacCanRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacHasRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacPermissionItem_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacPermissionsForUserRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacPermissionsForRoleRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacRolesForUserRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacRolesResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacPermissionsResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::palm::metasequoia::v1::_RbacUsersResponse_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::palm::metasequoia::v1::_Permission_default_instance_._instance,
+  &::palm::metasequoia::v1::_Resource_default_instance_._instance,
+  &::palm::metasequoia::v1::_Role_default_instance_._instance,
+  &::palm::metasequoia::v1::_User_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacCanRequest_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacHasRequest_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacPermissionItem_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacPermissionsForUserRequest_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacPermissionsForRoleRequest_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacRolesForUserRequest_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacRolesResponse_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacPermissionsResponse_default_instance_._instance,
+  &::palm::metasequoia::v1::_RbacUsersResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_metasequoia_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -405,22 +426,24 @@ const char descriptor_table_protodef_metasequoia_2eproto[] PROTOBUF_SECTION_VARI
   "a.v1P\001Z)github.com/saturn_xiv/palm/metas"
   "equoia/v2b\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_metasequoia_2eproto_deps[1] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_metasequoia_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_metasequoia_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_metasequoia_2eproto = {
-  false, false, 2657, descriptor_table_protodef_metasequoia_2eproto, "metasequoia.proto", 
-  &descriptor_table_metasequoia_2eproto_once, descriptor_table_metasequoia_2eproto_deps, 1, 13,
-  schemas, file_default_instances, TableStruct_metasequoia_2eproto::offsets,
-  file_level_metadata_metasequoia_2eproto, file_level_enum_descriptors_metasequoia_2eproto, file_level_service_descriptors_metasequoia_2eproto,
+static ::_pbi::once_flag descriptor_table_metasequoia_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_metasequoia_2eproto = {
+    false, false, 2657, descriptor_table_protodef_metasequoia_2eproto,
+    "metasequoia.proto",
+    &descriptor_table_metasequoia_2eproto_once, descriptor_table_metasequoia_2eproto_deps, 1, 13,
+    schemas, file_default_instances, TableStruct_metasequoia_2eproto::offsets,
+    file_level_metadata_metasequoia_2eproto, file_level_enum_descriptors_metasequoia_2eproto,
+    file_level_service_descriptors_metasequoia_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_metasequoia_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_metasequoia_2eproto_getter() {
   return &descriptor_table_metasequoia_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_metasequoia_2eproto(&descriptor_table_metasequoia_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_metasequoia_2eproto(&descriptor_table_metasequoia_2eproto);
 namespace palm {
 namespace metasequoia {
 namespace v1 {
@@ -435,60 +458,64 @@ class Permission::_Internal {
 
 const ::palm::metasequoia::v1::Role&
 Permission::_Internal::role(const Permission* msg) {
-  return *msg->subject_.role_;
+  return *msg->_impl_.subject_.role_;
 }
 const ::palm::metasequoia::v1::Resource&
 Permission::_Internal::object(const Permission* msg) {
-  return *msg->object_;
+  return *msg->_impl_.object_;
 }
 void Permission::set_allocated_role(::palm::metasequoia::v1::Role* role) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_subject();
   if (role) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::palm::metasequoia::v1::Role>::GetOwningArena(role);
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(role);
     if (message_arena != submessage_arena) {
       role = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, role, submessage_arena);
     }
     set_has_role();
-    subject_.role_ = role;
+    _impl_.subject_.role_ = role;
   }
   // @@protoc_insertion_point(field_set_allocated:palm.metasequoia.v1.Permission.role)
 }
 Permission::Permission(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.Permission)
 }
 Permission::Permission(const Permission& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Permission* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.action_){}
+    , decltype(_impl_.object_){nullptr}
+    , decltype(_impl_.subject_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.action_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    action_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.action_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_action().empty()) {
-    action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_action(), 
-      GetArenaForAllocation());
+    _this->_impl_.action_.Set(from._internal_action(), 
+      _this->GetArenaForAllocation());
   }
   if (from._internal_has_object()) {
-    object_ = new ::palm::metasequoia::v1::Resource(*from.object_);
-  } else {
-    object_ = nullptr;
+    _this->_impl_.object_ = new ::palm::metasequoia::v1::Resource(*from._impl_.object_);
   }
   clear_has_subject();
   switch (from.subject_case()) {
     case kUser: {
-      _internal_set_user(from._internal_user());
+      _this->_internal_set_user(from._internal_user());
       break;
     }
     case kRole: {
-      _internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(from._internal_role());
+      _this->_internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(
+          from._internal_role());
       break;
     }
     case SUBJECT_NOT_SET: {
@@ -498,39 +525,44 @@ Permission::Permission(const Permission& from)
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.Permission)
 }
 
-inline void Permission::SharedCtor() {
-action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  action_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-object_ = nullptr;
-clear_has_subject();
+inline void Permission::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.action_){}
+    , decltype(_impl_.object_){nullptr}
+    , decltype(_impl_.subject_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  _impl_.action_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.action_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  clear_has_subject();
 }
 
 Permission::~Permission() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.Permission)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Permission::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  action_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete object_;
+  _impl_.action_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.object_;
   if (has_subject()) {
     clear_subject();
   }
 }
 
-void Permission::ArenaDtor(void* object) {
-  Permission* _this = reinterpret_cast< Permission* >(object);
-  (void)_this;
-}
-void Permission::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Permission::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Permission::clear_subject() {
@@ -542,7 +574,7 @@ void Permission::clear_subject() {
     }
     case kRole: {
       if (GetArenaForAllocation() == nullptr) {
-        delete subject_.role_;
+        delete _impl_.subject_.role_;
       }
       break;
     }
@@ -550,7 +582,7 @@ void Permission::clear_subject() {
       break;
     }
   }
-  _oneof_case_[0] = SUBJECT_NOT_SET;
+  _impl_._oneof_case_[0] = SUBJECT_NOT_SET;
 }
 
 
@@ -560,20 +592,20 @@ void Permission::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  action_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && object_ != nullptr) {
-    delete object_;
+  _impl_.action_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.object_ != nullptr) {
+    delete _impl_.object_;
   }
-  object_ = nullptr;
+  _impl_.object_ = nullptr;
   clear_subject();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Permission::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Permission::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 user = 1;
       case 1:
@@ -603,9 +635,9 @@ const char* Permission::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 98)) {
           auto str = _internal_mutable_action();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "palm.metasequoia.v1.Permission.action"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "palm.metasequoia.v1.Permission.action"));
         } else
           goto handle_unusual;
         continue;
@@ -641,23 +673,21 @@ uint8_t* Permission::_InternalSerialize(
   // int32 user = 1;
   if (_internal_has_user()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
   }
 
   // .palm.metasequoia.v1.Role role = 2;
   if (_internal_has_role()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::role(this), target, stream);
+      InternalWriteMessage(2, _Internal::role(this),
+        _Internal::role(this).GetCachedSize(), target, stream);
   }
 
   // .palm.metasequoia.v1.Resource object = 11;
   if (this->_internal_has_object()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        11, _Internal::object(this), target, stream);
+      InternalWriteMessage(11, _Internal::object(this),
+        _Internal::object(this).GetCachedSize(), target, stream);
   }
 
   // string action = 12;
@@ -671,7 +701,7 @@ uint8_t* Permission::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.Permission)
@@ -697,68 +727,66 @@ size_t Permission::ByteSizeLong() const {
   if (this->_internal_has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *object_);
+        *_impl_.object_);
   }
 
   switch (subject_case()) {
     // int32 user = 1;
     case kUser: {
-      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_user());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user());
       break;
     }
     // .palm.metasequoia.v1.Role role = 2;
     case kRole: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *subject_.role_);
+          *_impl_.subject_.role_);
       break;
     }
     case SUBJECT_NOT_SET: {
       break;
     }
   }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Permission::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     Permission::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Permission::GetClassData() const { return &_class_data_; }
 
-void Permission::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<Permission *>(to)->MergeFrom(
-      static_cast<const Permission &>(from));
-}
 
-
-void Permission::MergeFrom(const Permission& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.Permission)
-  GOOGLE_DCHECK_NE(&from, this);
+void Permission::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Permission*>(&to_msg);
+  auto& from = static_cast<const Permission&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.Permission)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_action().empty()) {
-    _internal_set_action(from._internal_action());
+    _this->_internal_set_action(from._internal_action());
   }
   if (from._internal_has_object()) {
-    _internal_mutable_object()->::palm::metasequoia::v1::Resource::MergeFrom(from._internal_object());
+    _this->_internal_mutable_object()->::palm::metasequoia::v1::Resource::MergeFrom(
+        from._internal_object());
   }
   switch (from.subject_case()) {
     case kUser: {
-      _internal_set_user(from._internal_user());
+      _this->_internal_set_user(from._internal_user());
       break;
     }
     case kRole: {
-      _internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(from._internal_role());
+      _this->_internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(
+          from._internal_role());
       break;
     }
     case SUBJECT_NOT_SET: {
       break;
     }
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Permission::CopyFrom(const Permission& from) {
@@ -778,17 +806,16 @@ void Permission::InternalSwap(Permission* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &action_, lhs_arena,
-      &other->action_, rhs_arena
+      &_impl_.action_, lhs_arena,
+      &other->_impl_.action_, rhs_arena
   );
-  swap(object_, other->object_);
-  swap(subject_, other->subject_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  swap(_impl_.object_, other->_impl_.object_);
+  swap(_impl_.subject_, other->_impl_.subject_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Permission::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[0]);
 }
@@ -802,31 +829,35 @@ class Resource::_Internal {
 Resource::Resource(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.Resource)
 }
 Resource::Resource(const Resource& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Resource* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.type_){}
+    , decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.type_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.type_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_type().empty()) {
-    type_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_type(), 
-      GetArenaForAllocation());
+    _this->_impl_.type_.Set(from._internal_type(), 
+      _this->GetArenaForAllocation());
   }
   clear_has_id();
   switch (from.id_case()) {
     case kS: {
-      _internal_set_s(from._internal_s());
+      _this->_internal_set_s(from._internal_s());
       break;
     }
     case kI: {
-      _internal_set_i(from._internal_i());
+      _this->_internal_set_i(from._internal_i());
       break;
     }
     case ID_NOT_SET: {
@@ -836,44 +867,49 @@ Resource::Resource(const Resource& from)
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.Resource)
 }
 
-inline void Resource::SharedCtor() {
-type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  type_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-clear_has_id();
+inline void Resource::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.type_){}
+    , decltype(_impl_.id_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  _impl_.type_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.type_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  clear_has_id();
 }
 
 Resource::~Resource() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.Resource)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Resource::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.type_.Destroy();
   if (has_id()) {
     clear_id();
   }
 }
 
-void Resource::ArenaDtor(void* object) {
-  Resource* _this = reinterpret_cast< Resource* >(object);
-  (void)_this;
-}
-void Resource::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Resource::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Resource::clear_id() {
 // @@protoc_insertion_point(one_of_clear_start:palm.metasequoia.v1.Resource)
   switch (id_case()) {
     case kS: {
-      id_.s_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+      _impl_.id_.s_.Destroy();
       break;
     }
     case kI: {
@@ -884,7 +920,7 @@ void Resource::clear_id() {
       break;
     }
   }
-  _oneof_case_[0] = ID_NOT_SET;
+  _impl_._oneof_case_[0] = ID_NOT_SET;
 }
 
 
@@ -894,24 +930,24 @@ void Resource::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  type_.ClearToEmpty();
+  _impl_.type_.ClearToEmpty();
   clear_id();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Resource::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Resource::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string s = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_s();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "palm.metasequoia.v1.Resource.s"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "palm.metasequoia.v1.Resource.s"));
         } else
           goto handle_unusual;
         continue;
@@ -927,9 +963,9 @@ const char* Resource::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
           auto str = _internal_mutable_type();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "palm.metasequoia.v1.Resource.type"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "palm.metasequoia.v1.Resource.type"));
         } else
           goto handle_unusual;
         continue;
@@ -975,7 +1011,7 @@ uint8_t* Resource::_InternalSerialize(
   // int32 i = 2;
   if (_internal_has_i()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_i(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_i(), target);
   }
 
   // string type = 11;
@@ -989,7 +1025,7 @@ uint8_t* Resource::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.Resource)
@@ -1021,52 +1057,48 @@ size_t Resource::ByteSizeLong() const {
     }
     // int32 i = 2;
     case kI: {
-      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_i());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_i());
       break;
     }
     case ID_NOT_SET: {
       break;
     }
   }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Resource::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     Resource::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Resource::GetClassData() const { return &_class_data_; }
 
-void Resource::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<Resource *>(to)->MergeFrom(
-      static_cast<const Resource &>(from));
-}
 
-
-void Resource::MergeFrom(const Resource& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.Resource)
-  GOOGLE_DCHECK_NE(&from, this);
+void Resource::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Resource*>(&to_msg);
+  auto& from = static_cast<const Resource&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.Resource)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_type().empty()) {
-    _internal_set_type(from._internal_type());
+    _this->_internal_set_type(from._internal_type());
   }
   switch (from.id_case()) {
     case kS: {
-      _internal_set_s(from._internal_s());
+      _this->_internal_set_s(from._internal_s());
       break;
     }
     case kI: {
-      _internal_set_i(from._internal_i());
+      _this->_internal_set_i(from._internal_i());
       break;
     }
     case ID_NOT_SET: {
       break;
     }
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Resource::CopyFrom(const Resource& from) {
@@ -1086,16 +1118,15 @@ void Resource::InternalSwap(Resource* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &type_, lhs_arena,
-      &other->type_, rhs_arena
+      &_impl_.type_, lhs_arena,
+      &other->_impl_.type_, rhs_arena
   );
-  swap(id_, other->id_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  swap(_impl_.id_, other->_impl_.id_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Resource::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[1]);
 }
@@ -1110,33 +1141,32 @@ class Role::_Internal {
 
 const ::PROTOBUF_NAMESPACE_ID::Empty&
 Role::_Internal::administrator(const Role* msg) {
-  return *msg->by_.administrator_;
+  return *msg->_impl_.by_.administrator_;
 }
 const ::PROTOBUF_NAMESPACE_ID::Empty&
 Role::_Internal::root(const Role* msg) {
-  return *msg->by_.root_;
+  return *msg->_impl_.by_.root_;
 }
 void Role::set_allocated_administrator(::PROTOBUF_NAMESPACE_ID::Empty* administrator) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_by();
   if (administrator) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
                 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(administrator));
     if (message_arena != submessage_arena) {
       administrator = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, administrator, submessage_arena);
     }
     set_has_administrator();
-    by_.administrator_ = administrator;
+    _impl_.by_.administrator_ = administrator;
   }
   // @@protoc_insertion_point(field_set_allocated:palm.metasequoia.v1.Role.administrator)
 }
 void Role::clear_administrator() {
   if (_internal_has_administrator()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete by_.administrator_;
+      delete _impl_.by_.administrator_;
     }
     clear_has_by();
   }
@@ -1146,22 +1176,21 @@ void Role::set_allocated_root(::PROTOBUF_NAMESPACE_ID::Empty* root) {
   clear_by();
   if (root) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<
-            ::PROTOBUF_NAMESPACE_ID::MessageLite>::GetOwningArena(
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
                 reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(root));
     if (message_arena != submessage_arena) {
       root = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
           message_arena, root, submessage_arena);
     }
     set_has_root();
-    by_.root_ = root;
+    _impl_.by_.root_ = root;
   }
   // @@protoc_insertion_point(field_set_allocated:palm.metasequoia.v1.Role.root)
 }
 void Role::clear_root() {
   if (_internal_has_root()) {
     if (GetArenaForAllocation() == nullptr) {
-      delete by_.root_;
+      delete _impl_.by_.root_;
     }
     clear_has_by();
   }
@@ -1169,27 +1198,32 @@ void Role::clear_root() {
 Role::Role(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.Role)
 }
 Role::Role(const Role& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Role* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.by_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_by();
   switch (from.by_case()) {
     case kAdministrator: {
-      _internal_mutable_administrator()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(from._internal_administrator());
+      _this->_internal_mutable_administrator()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(
+          from._internal_administrator());
       break;
     }
     case kRoot: {
-      _internal_mutable_root()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(from._internal_root());
+      _this->_internal_mutable_root()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(
+          from._internal_root());
       break;
     }
     case kCode: {
-      _internal_set_code(from._internal_code());
+      _this->_internal_set_code(from._internal_code());
       break;
     }
     case BY_NOT_SET: {
@@ -1199,15 +1233,25 @@ Role::Role(const Role& from)
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.Role)
 }
 
-inline void Role::SharedCtor() {
-clear_has_by();
+inline void Role::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.by_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_by();
 }
 
 Role::~Role() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.Role)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Role::SharedDtor() {
@@ -1217,14 +1261,8 @@ inline void Role::SharedDtor() {
   }
 }
 
-void Role::ArenaDtor(void* object) {
-  Role* _this = reinterpret_cast< Role* >(object);
-  (void)_this;
-}
-void Role::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Role::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Role::clear_by() {
@@ -1232,25 +1270,25 @@ void Role::clear_by() {
   switch (by_case()) {
     case kAdministrator: {
       if (GetArenaForAllocation() == nullptr) {
-        delete by_.administrator_;
+        delete _impl_.by_.administrator_;
       }
       break;
     }
     case kRoot: {
       if (GetArenaForAllocation() == nullptr) {
-        delete by_.root_;
+        delete _impl_.by_.root_;
       }
       break;
     }
     case kCode: {
-      by_.code_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+      _impl_.by_.code_.Destroy();
       break;
     }
     case BY_NOT_SET: {
       break;
     }
   }
-  _oneof_case_[0] = BY_NOT_SET;
+  _impl_._oneof_case_[0] = BY_NOT_SET;
 }
 
 
@@ -1264,11 +1302,11 @@ void Role::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Role::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Role::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .google.protobuf.Empty administrator = 1;
       case 1:
@@ -1290,9 +1328,9 @@ const char* Role::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_code();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "palm.metasequoia.v1.Role.code"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "palm.metasequoia.v1.Role.code"));
         } else
           goto handle_unusual;
         continue;
@@ -1327,18 +1365,16 @@ uint8_t* Role::_InternalSerialize(
 
   // .google.protobuf.Empty administrator = 1;
   if (_internal_has_administrator()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::administrator(this), target, stream);
+      InternalWriteMessage(1, _Internal::administrator(this),
+        _Internal::administrator(this).GetCachedSize(), target, stream);
   }
 
   // .google.protobuf.Empty root = 2;
   if (_internal_has_root()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::root(this), target, stream);
+      InternalWriteMessage(2, _Internal::root(this),
+        _Internal::root(this).GetCachedSize(), target, stream);
   }
 
   // string code = 3;
@@ -1352,7 +1388,7 @@ uint8_t* Role::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.Role)
@@ -1372,14 +1408,14 @@ size_t Role::ByteSizeLong() const {
     case kAdministrator: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *by_.administrator_);
+          *_impl_.by_.administrator_);
       break;
     }
     // .google.protobuf.Empty root = 2;
     case kRoot: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *by_.root_);
+          *_impl_.by_.root_);
       break;
     }
     // string code = 3;
@@ -1393,46 +1429,44 @@ size_t Role::ByteSizeLong() const {
       break;
     }
   }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Role::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     Role::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Role::GetClassData() const { return &_class_data_; }
 
-void Role::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<Role *>(to)->MergeFrom(
-      static_cast<const Role &>(from));
-}
 
-
-void Role::MergeFrom(const Role& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.Role)
-  GOOGLE_DCHECK_NE(&from, this);
+void Role::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Role*>(&to_msg);
+  auto& from = static_cast<const Role&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.Role)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   switch (from.by_case()) {
     case kAdministrator: {
-      _internal_mutable_administrator()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(from._internal_administrator());
+      _this->_internal_mutable_administrator()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(
+          from._internal_administrator());
       break;
     }
     case kRoot: {
-      _internal_mutable_root()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(from._internal_root());
+      _this->_internal_mutable_root()->::PROTOBUF_NAMESPACE_ID::Empty::MergeFrom(
+          from._internal_root());
       break;
     }
     case kCode: {
-      _internal_set_code(from._internal_code());
+      _this->_internal_set_code(from._internal_code());
       break;
     }
     case BY_NOT_SET: {
       break;
     }
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Role::CopyFrom(const Role& from) {
@@ -1449,12 +1483,12 @@ bool Role::IsInitialized() const {
 void Role::InternalSwap(Role* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(by_, other->by_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  swap(_impl_.by_, other->_impl_.by_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Role::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[2]);
 }
@@ -1468,23 +1502,26 @@ class User::_Internal {
 User::User(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.User)
 }
 User::User(const User& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  User* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.by_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   clear_has_by();
   switch (from.by_case()) {
     case kId: {
-      _internal_set_id(from._internal_id());
+      _this->_internal_set_id(from._internal_id());
       break;
     }
     case kCode: {
-      _internal_set_code(from._internal_code());
+      _this->_internal_set_code(from._internal_code());
       break;
     }
     case BY_NOT_SET: {
@@ -1494,15 +1531,25 @@ User::User(const User& from)
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.User)
 }
 
-inline void User::SharedCtor() {
-clear_has_by();
+inline void User::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.by_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , /*decltype(_impl_._oneof_case_)*/{}
+  };
+  clear_has_by();
 }
 
 User::~User() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.User)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void User::SharedDtor() {
@@ -1512,14 +1559,8 @@ inline void User::SharedDtor() {
   }
 }
 
-void User::ArenaDtor(void* object) {
-  User* _this = reinterpret_cast< User* >(object);
-  (void)_this;
-}
-void User::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void User::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void User::clear_by() {
@@ -1530,14 +1571,14 @@ void User::clear_by() {
       break;
     }
     case kCode: {
-      by_.code_.Destroy(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+      _impl_.by_.code_.Destroy();
       break;
     }
     case BY_NOT_SET: {
       break;
     }
   }
-  _oneof_case_[0] = BY_NOT_SET;
+  _impl_._oneof_case_[0] = BY_NOT_SET;
 }
 
 
@@ -1551,11 +1592,11 @@ void User::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* User::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* User::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 id = 1;
       case 1:
@@ -1569,9 +1610,9 @@ const char* User::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inter
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_code();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "palm.metasequoia.v1.User.code"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "palm.metasequoia.v1.User.code"));
         } else
           goto handle_unusual;
         continue;
@@ -1607,7 +1648,7 @@ uint8_t* User::_InternalSerialize(
   // int32 id = 1;
   if (_internal_has_id()) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_id(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_id(), target);
   }
 
   // string code = 2;
@@ -1621,7 +1662,7 @@ uint8_t* User::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.User)
@@ -1639,7 +1680,7 @@ size_t User::ByteSizeLong() const {
   switch (by_case()) {
     // int32 id = 1;
     case kId: {
-      total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_id());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_id());
       break;
     }
     // string code = 2;
@@ -1653,42 +1694,38 @@ size_t User::ByteSizeLong() const {
       break;
     }
   }
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData User::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     User::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*User::GetClassData() const { return &_class_data_; }
 
-void User::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<User *>(to)->MergeFrom(
-      static_cast<const User &>(from));
-}
 
-
-void User::MergeFrom(const User& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.User)
-  GOOGLE_DCHECK_NE(&from, this);
+void User::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<User*>(&to_msg);
+  auto& from = static_cast<const User&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.User)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   switch (from.by_case()) {
     case kId: {
-      _internal_set_id(from._internal_id());
+      _this->_internal_set_id(from._internal_id());
       break;
     }
     case kCode: {
-      _internal_set_code(from._internal_code());
+      _this->_internal_set_code(from._internal_code());
       break;
     }
     case BY_NOT_SET: {
       break;
     }
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void User::CopyFrom(const User& from) {
@@ -1705,12 +1742,12 @@ bool User::IsInitialized() const {
 void User::InternalSwap(User* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(by_, other->by_);
-  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  swap(_impl_.by_, other->_impl_.by_);
+  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata User::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[3]);
 }
@@ -1724,69 +1761,72 @@ class RbacCanRequest::_Internal {
 
 const ::palm::metasequoia::v1::Resource&
 RbacCanRequest::_Internal::object(const RbacCanRequest* msg) {
-  return *msg->object_;
+  return *msg->_impl_.object_;
 }
 RbacCanRequest::RbacCanRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacCanRequest)
 }
 RbacCanRequest::RbacCanRequest(const RbacCanRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacCanRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.action_){}
+    , decltype(_impl_.object_){nullptr}
+    , decltype(_impl_.user_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.action_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    action_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.action_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_action().empty()) {
-    action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_action(), 
-      GetArenaForAllocation());
+    _this->_impl_.action_.Set(from._internal_action(), 
+      _this->GetArenaForAllocation());
   }
   if (from._internal_has_object()) {
-    object_ = new ::palm::metasequoia::v1::Resource(*from.object_);
-  } else {
-    object_ = nullptr;
+    _this->_impl_.object_ = new ::palm::metasequoia::v1::Resource(*from._impl_.object_);
   }
-  user_ = from.user_;
+  _this->_impl_.user_ = from._impl_.user_;
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacCanRequest)
 }
 
-inline void RbacCanRequest::SharedCtor() {
-action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  action_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&object_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&user_) -
-    reinterpret_cast<char*>(&object_)) + sizeof(user_));
+inline void RbacCanRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.action_){}
+    , decltype(_impl_.object_){nullptr}
+    , decltype(_impl_.user_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.action_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.action_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 RbacCanRequest::~RbacCanRequest() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacCanRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacCanRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  action_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete object_;
+  _impl_.action_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.object_;
 }
 
-void RbacCanRequest::ArenaDtor(void* object) {
-  RbacCanRequest* _this = reinterpret_cast< RbacCanRequest* >(object);
-  (void)_this;
-}
-void RbacCanRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacCanRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacCanRequest::Clear() {
@@ -1795,25 +1835,25 @@ void RbacCanRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  action_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && object_ != nullptr) {
-    delete object_;
+  _impl_.action_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.object_ != nullptr) {
+    delete _impl_.object_;
   }
-  object_ = nullptr;
-  user_ = 0;
+  _impl_.object_ = nullptr;
+  _impl_.user_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacCanRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacCanRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 user = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1830,9 +1870,9 @@ const char* RbacCanRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_action();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "palm.metasequoia.v1.RbacCanRequest.action"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "palm.metasequoia.v1.RbacCanRequest.action"));
         } else
           goto handle_unusual;
         continue;
@@ -1868,15 +1908,14 @@ uint8_t* RbacCanRequest::_InternalSerialize(
   // int32 user = 1;
   if (this->_internal_user() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
   }
 
   // .palm.metasequoia.v1.Resource object = 2;
   if (this->_internal_has_object()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::object(this), target, stream);
+      InternalWriteMessage(2, _Internal::object(this),
+        _Internal::object(this).GetCachedSize(), target, stream);
   }
 
   // string action = 3;
@@ -1890,7 +1929,7 @@ uint8_t* RbacCanRequest::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacCanRequest)
@@ -1916,46 +1955,43 @@ size_t RbacCanRequest::ByteSizeLong() const {
   if (this->_internal_has_object()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *object_);
+        *_impl_.object_);
   }
 
   // int32 user = 1;
   if (this->_internal_user() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_user());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacCanRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacCanRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacCanRequest::GetClassData() const { return &_class_data_; }
 
-void RbacCanRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacCanRequest *>(to)->MergeFrom(
-      static_cast<const RbacCanRequest &>(from));
-}
 
-
-void RbacCanRequest::MergeFrom(const RbacCanRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacCanRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacCanRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacCanRequest*>(&to_msg);
+  auto& from = static_cast<const RbacCanRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacCanRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_action().empty()) {
-    _internal_set_action(from._internal_action());
+    _this->_internal_set_action(from._internal_action());
   }
   if (from._internal_has_object()) {
-    _internal_mutable_object()->::palm::metasequoia::v1::Resource::MergeFrom(from._internal_object());
+    _this->_internal_mutable_object()->::palm::metasequoia::v1::Resource::MergeFrom(
+        from._internal_object());
   }
   if (from._internal_user() != 0) {
-    _internal_set_user(from._internal_user());
+    _this->_internal_set_user(from._internal_user());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacCanRequest::CopyFrom(const RbacCanRequest& from) {
@@ -1975,20 +2011,19 @@ void RbacCanRequest::InternalSwap(RbacCanRequest* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &action_, lhs_arena,
-      &other->action_, rhs_arena
+      &_impl_.action_, lhs_arena,
+      &other->_impl_.action_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RbacCanRequest, user_)
-      + sizeof(RbacCanRequest::user_)
-      - PROTOBUF_FIELD_OFFSET(RbacCanRequest, object_)>(
-          reinterpret_cast<char*>(&object_),
-          reinterpret_cast<char*>(&other->object_));
+      PROTOBUF_FIELD_OFFSET(RbacCanRequest, _impl_.user_)
+      + sizeof(RbacCanRequest::_impl_.user_)
+      - PROTOBUF_FIELD_OFFSET(RbacCanRequest, _impl_.object_)>(
+          reinterpret_cast<char*>(&_impl_.object_),
+          reinterpret_cast<char*>(&other->_impl_.object_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacCanRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[4]);
 }
@@ -2002,56 +2037,57 @@ class RbacHasRequest::_Internal {
 
 const ::palm::metasequoia::v1::Role&
 RbacHasRequest::_Internal::role(const RbacHasRequest* msg) {
-  return *msg->role_;
+  return *msg->_impl_.role_;
 }
 RbacHasRequest::RbacHasRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacHasRequest)
 }
 RbacHasRequest::RbacHasRequest(const RbacHasRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacHasRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.role_){nullptr}
+    , decltype(_impl_.user_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_role()) {
-    role_ = new ::palm::metasequoia::v1::Role(*from.role_);
-  } else {
-    role_ = nullptr;
+    _this->_impl_.role_ = new ::palm::metasequoia::v1::Role(*from._impl_.role_);
   }
-  user_ = from.user_;
+  _this->_impl_.user_ = from._impl_.user_;
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacHasRequest)
 }
 
-inline void RbacHasRequest::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&role_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&user_) -
-    reinterpret_cast<char*>(&role_)) + sizeof(user_));
+inline void RbacHasRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.role_){nullptr}
+    , decltype(_impl_.user_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RbacHasRequest::~RbacHasRequest() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacHasRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacHasRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete role_;
+  if (this != internal_default_instance()) delete _impl_.role_;
 }
 
-void RbacHasRequest::ArenaDtor(void* object) {
-  RbacHasRequest* _this = reinterpret_cast< RbacHasRequest* >(object);
-  (void)_this;
-}
-void RbacHasRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacHasRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacHasRequest::Clear() {
@@ -2060,24 +2096,24 @@ void RbacHasRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && role_ != nullptr) {
-    delete role_;
+  if (GetArenaForAllocation() == nullptr && _impl_.role_ != nullptr) {
+    delete _impl_.role_;
   }
-  role_ = nullptr;
-  user_ = 0;
+  _impl_.role_ = nullptr;
+  _impl_.user_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacHasRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacHasRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 user = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2122,19 +2158,18 @@ uint8_t* RbacHasRequest::_InternalSerialize(
   // int32 user = 1;
   if (this->_internal_user() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
   }
 
   // .palm.metasequoia.v1.Role role = 2;
   if (this->_internal_has_role()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::role(this), target, stream);
+      InternalWriteMessage(2, _Internal::role(this),
+        _Internal::role(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacHasRequest)
@@ -2153,43 +2188,40 @@ size_t RbacHasRequest::ByteSizeLong() const {
   if (this->_internal_has_role()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *role_);
+        *_impl_.role_);
   }
 
   // int32 user = 1;
   if (this->_internal_user() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_user());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacHasRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacHasRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacHasRequest::GetClassData() const { return &_class_data_; }
 
-void RbacHasRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacHasRequest *>(to)->MergeFrom(
-      static_cast<const RbacHasRequest &>(from));
-}
 
-
-void RbacHasRequest::MergeFrom(const RbacHasRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacHasRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacHasRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacHasRequest*>(&to_msg);
+  auto& from = static_cast<const RbacHasRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacHasRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_role()) {
-    _internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(from._internal_role());
+    _this->_internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(
+        from._internal_role());
   }
   if (from._internal_user() != 0) {
-    _internal_set_user(from._internal_user());
+    _this->_internal_set_user(from._internal_user());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacHasRequest::CopyFrom(const RbacHasRequest& from) {
@@ -2207,15 +2239,15 @@ void RbacHasRequest::InternalSwap(RbacHasRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RbacHasRequest, user_)
-      + sizeof(RbacHasRequest::user_)
-      - PROTOBUF_FIELD_OFFSET(RbacHasRequest, role_)>(
-          reinterpret_cast<char*>(&role_),
-          reinterpret_cast<char*>(&other->role_));
+      PROTOBUF_FIELD_OFFSET(RbacHasRequest, _impl_.user_)
+      + sizeof(RbacHasRequest::_impl_.user_)
+      - PROTOBUF_FIELD_OFFSET(RbacHasRequest, _impl_.role_)>(
+          reinterpret_cast<char*>(&_impl_.role_),
+          reinterpret_cast<char*>(&other->_impl_.role_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacHasRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[5]);
 }
@@ -2229,65 +2261,69 @@ class RbacPermissionItem::_Internal {
 
 const ::palm::metasequoia::v1::Resource&
 RbacPermissionItem::_Internal::resource(const RbacPermissionItem* msg) {
-  return *msg->resource_;
+  return *msg->_impl_.resource_;
 }
 RbacPermissionItem::RbacPermissionItem(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacPermissionItem)
 }
 RbacPermissionItem::RbacPermissionItem(const RbacPermissionItem& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacPermissionItem* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.action_){}
+    , decltype(_impl_.resource_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  _impl_.action_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    action_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+    _impl_.action_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_action().empty()) {
-    action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_action(), 
-      GetArenaForAllocation());
+    _this->_impl_.action_.Set(from._internal_action(), 
+      _this->GetArenaForAllocation());
   }
   if (from._internal_has_resource()) {
-    resource_ = new ::palm::metasequoia::v1::Resource(*from.resource_);
-  } else {
-    resource_ = nullptr;
+    _this->_impl_.resource_ = new ::palm::metasequoia::v1::Resource(*from._impl_.resource_);
   }
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacPermissionItem)
 }
 
-inline void RbacPermissionItem::SharedCtor() {
-action_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  action_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-resource_ = nullptr;
+inline void RbacPermissionItem::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.action_){}
+    , decltype(_impl_.resource_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.action_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.action_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 RbacPermissionItem::~RbacPermissionItem() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacPermissionItem)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacPermissionItem::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  action_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete resource_;
+  _impl_.action_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.resource_;
 }
 
-void RbacPermissionItem::ArenaDtor(void* object) {
-  RbacPermissionItem* _this = reinterpret_cast< RbacPermissionItem* >(object);
-  (void)_this;
-}
-void RbacPermissionItem::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacPermissionItem::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacPermissionItem::Clear() {
@@ -2296,27 +2332,27 @@ void RbacPermissionItem::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  action_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && resource_ != nullptr) {
-    delete resource_;
+  _impl_.action_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.resource_ != nullptr) {
+    delete _impl_.resource_;
   }
-  resource_ = nullptr;
+  _impl_.resource_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacPermissionItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacPermissionItem::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string action = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_action();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "palm.metasequoia.v1.RbacPermissionItem.action"));
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "palm.metasequoia.v1.RbacPermissionItem.action"));
         } else
           goto handle_unusual;
         continue;
@@ -2369,14 +2405,13 @@ uint8_t* RbacPermissionItem::_InternalSerialize(
 
   // .palm.metasequoia.v1.Resource resource = 2;
   if (this->_internal_has_resource()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::resource(this), target, stream);
+      InternalWriteMessage(2, _Internal::resource(this),
+        _Internal::resource(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacPermissionItem)
@@ -2402,38 +2437,35 @@ size_t RbacPermissionItem::ByteSizeLong() const {
   if (this->_internal_has_resource()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *resource_);
+        *_impl_.resource_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacPermissionItem::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacPermissionItem::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacPermissionItem::GetClassData() const { return &_class_data_; }
 
-void RbacPermissionItem::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacPermissionItem *>(to)->MergeFrom(
-      static_cast<const RbacPermissionItem &>(from));
-}
 
-
-void RbacPermissionItem::MergeFrom(const RbacPermissionItem& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionItem)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacPermissionItem::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacPermissionItem*>(&to_msg);
+  auto& from = static_cast<const RbacPermissionItem&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionItem)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_action().empty()) {
-    _internal_set_action(from._internal_action());
+    _this->_internal_set_action(from._internal_action());
   }
   if (from._internal_has_resource()) {
-    _internal_mutable_resource()->::palm::metasequoia::v1::Resource::MergeFrom(from._internal_resource());
+    _this->_internal_mutable_resource()->::palm::metasequoia::v1::Resource::MergeFrom(
+        from._internal_resource());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacPermissionItem::CopyFrom(const RbacPermissionItem& from) {
@@ -2453,15 +2485,14 @@ void RbacPermissionItem::InternalSwap(RbacPermissionItem* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &action_, lhs_arena,
-      &other->action_, rhs_arena
+      &_impl_.action_, lhs_arena,
+      &other->_impl_.action_, rhs_arena
   );
-  swap(resource_, other->resource_);
+  swap(_impl_.resource_, other->_impl_.resource_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacPermissionItem::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[6]);
 }
@@ -2474,45 +2505,50 @@ class RbacPermissionsForUserRequest::_Internal {
 
 RbacPermissionsForUserRequest::RbacPermissionsForUserRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  permissions_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacPermissionsForUserRequest)
 }
 RbacPermissionsForUserRequest::RbacPermissionsForUserRequest(const RbacPermissionsForUserRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      permissions_(from.permissions_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacPermissionsForUserRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.permissions_){from._impl_.permissions_}
+    , decltype(_impl_.user_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  user_ = from.user_;
+  _this->_impl_.user_ = from._impl_.user_;
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacPermissionsForUserRequest)
 }
 
-inline void RbacPermissionsForUserRequest::SharedCtor() {
-user_ = 0;
+inline void RbacPermissionsForUserRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.permissions_){arena}
+    , decltype(_impl_.user_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RbacPermissionsForUserRequest::~RbacPermissionsForUserRequest() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacPermissionsForUserRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacPermissionsForUserRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.permissions_.~RepeatedPtrField();
 }
 
-void RbacPermissionsForUserRequest::ArenaDtor(void* object) {
-  RbacPermissionsForUserRequest* _this = reinterpret_cast< RbacPermissionsForUserRequest* >(object);
-  (void)_this;
-}
-void RbacPermissionsForUserRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacPermissionsForUserRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacPermissionsForUserRequest::Clear() {
@@ -2521,21 +2557,21 @@ void RbacPermissionsForUserRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  permissions_.Clear();
-  user_ = 0;
+  _impl_.permissions_.Clear();
+  _impl_.user_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacPermissionsForUserRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacPermissionsForUserRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 user = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2585,19 +2621,19 @@ uint8_t* RbacPermissionsForUserRequest::_InternalSerialize(
   // int32 user = 1;
   if (this->_internal_user() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
   }
 
   // repeated .palm.metasequoia.v1.RbacPermissionItem permissions = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_permissions_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_permissions_size()); i < n; i++) {
+    const auto& repfield = this->_internal_permissions(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_permissions(i), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacPermissionsForUserRequest)
@@ -2614,43 +2650,39 @@ size_t RbacPermissionsForUserRequest::ByteSizeLong() const {
 
   // repeated .palm.metasequoia.v1.RbacPermissionItem permissions = 2;
   total_size += 1UL * this->_internal_permissions_size();
-  for (const auto& msg : this->permissions_) {
+  for (const auto& msg : this->_impl_.permissions_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // int32 user = 1;
   if (this->_internal_user() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_user());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacPermissionsForUserRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacPermissionsForUserRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacPermissionsForUserRequest::GetClassData() const { return &_class_data_; }
 
-void RbacPermissionsForUserRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacPermissionsForUserRequest *>(to)->MergeFrom(
-      static_cast<const RbacPermissionsForUserRequest &>(from));
-}
 
-
-void RbacPermissionsForUserRequest::MergeFrom(const RbacPermissionsForUserRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionsForUserRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacPermissionsForUserRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacPermissionsForUserRequest*>(&to_msg);
+  auto& from = static_cast<const RbacPermissionsForUserRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionsForUserRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  permissions_.MergeFrom(from.permissions_);
+  _this->_impl_.permissions_.MergeFrom(from._impl_.permissions_);
   if (from._internal_user() != 0) {
-    _internal_set_user(from._internal_user());
+    _this->_internal_set_user(from._internal_user());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacPermissionsForUserRequest::CopyFrom(const RbacPermissionsForUserRequest& from) {
@@ -2667,12 +2699,12 @@ bool RbacPermissionsForUserRequest::IsInitialized() const {
 void RbacPermissionsForUserRequest::InternalSwap(RbacPermissionsForUserRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  permissions_.InternalSwap(&other->permissions_);
-  swap(user_, other->user_);
+  _impl_.permissions_.InternalSwap(&other->_impl_.permissions_);
+  swap(_impl_.user_, other->_impl_.user_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacPermissionsForUserRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[7]);
 }
@@ -2686,54 +2718,57 @@ class RbacPermissionsForRoleRequest::_Internal {
 
 const ::palm::metasequoia::v1::Role&
 RbacPermissionsForRoleRequest::_Internal::role(const RbacPermissionsForRoleRequest* msg) {
-  return *msg->role_;
+  return *msg->_impl_.role_;
 }
 RbacPermissionsForRoleRequest::RbacPermissionsForRoleRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  permissions_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacPermissionsForRoleRequest)
 }
 RbacPermissionsForRoleRequest::RbacPermissionsForRoleRequest(const RbacPermissionsForRoleRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      permissions_(from.permissions_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacPermissionsForRoleRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.permissions_){from._impl_.permissions_}
+    , decltype(_impl_.role_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_role()) {
-    role_ = new ::palm::metasequoia::v1::Role(*from.role_);
-  } else {
-    role_ = nullptr;
+    _this->_impl_.role_ = new ::palm::metasequoia::v1::Role(*from._impl_.role_);
   }
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacPermissionsForRoleRequest)
 }
 
-inline void RbacPermissionsForRoleRequest::SharedCtor() {
-role_ = nullptr;
+inline void RbacPermissionsForRoleRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.permissions_){arena}
+    , decltype(_impl_.role_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RbacPermissionsForRoleRequest::~RbacPermissionsForRoleRequest() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacPermissionsForRoleRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacPermissionsForRoleRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete role_;
+  _impl_.permissions_.~RepeatedPtrField();
+  if (this != internal_default_instance()) delete _impl_.role_;
 }
 
-void RbacPermissionsForRoleRequest::ArenaDtor(void* object) {
-  RbacPermissionsForRoleRequest* _this = reinterpret_cast< RbacPermissionsForRoleRequest* >(object);
-  (void)_this;
-}
-void RbacPermissionsForRoleRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacPermissionsForRoleRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacPermissionsForRoleRequest::Clear() {
@@ -2742,19 +2777,19 @@ void RbacPermissionsForRoleRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  permissions_.Clear();
-  if (GetArenaForAllocation() == nullptr && role_ != nullptr) {
-    delete role_;
+  _impl_.permissions_.Clear();
+  if (GetArenaForAllocation() == nullptr && _impl_.role_ != nullptr) {
+    delete _impl_.role_;
   }
-  role_ = nullptr;
+  _impl_.role_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacPermissionsForRoleRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacPermissionsForRoleRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .palm.metasequoia.v1.Role role = 1;
       case 1:
@@ -2808,22 +2843,21 @@ uint8_t* RbacPermissionsForRoleRequest::_InternalSerialize(
 
   // .palm.metasequoia.v1.Role role = 1;
   if (this->_internal_has_role()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::role(this), target, stream);
+      InternalWriteMessage(1, _Internal::role(this),
+        _Internal::role(this).GetCachedSize(), target, stream);
   }
 
   // repeated .palm.metasequoia.v1.RbacPermissionItem permissions = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_permissions_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_permissions_size()); i < n; i++) {
+    const auto& repfield = this->_internal_permissions(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_permissions(i), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacPermissionsForRoleRequest)
@@ -2840,7 +2874,7 @@ size_t RbacPermissionsForRoleRequest::ByteSizeLong() const {
 
   // repeated .palm.metasequoia.v1.RbacPermissionItem permissions = 2;
   total_size += 1UL * this->_internal_permissions_size();
-  for (const auto& msg : this->permissions_) {
+  for (const auto& msg : this->_impl_.permissions_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -2849,36 +2883,33 @@ size_t RbacPermissionsForRoleRequest::ByteSizeLong() const {
   if (this->_internal_has_role()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *role_);
+        *_impl_.role_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacPermissionsForRoleRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacPermissionsForRoleRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacPermissionsForRoleRequest::GetClassData() const { return &_class_data_; }
 
-void RbacPermissionsForRoleRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacPermissionsForRoleRequest *>(to)->MergeFrom(
-      static_cast<const RbacPermissionsForRoleRequest &>(from));
-}
 
-
-void RbacPermissionsForRoleRequest::MergeFrom(const RbacPermissionsForRoleRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionsForRoleRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacPermissionsForRoleRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacPermissionsForRoleRequest*>(&to_msg);
+  auto& from = static_cast<const RbacPermissionsForRoleRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionsForRoleRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  permissions_.MergeFrom(from.permissions_);
+  _this->_impl_.permissions_.MergeFrom(from._impl_.permissions_);
   if (from._internal_has_role()) {
-    _internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(from._internal_role());
+    _this->_internal_mutable_role()->::palm::metasequoia::v1::Role::MergeFrom(
+        from._internal_role());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacPermissionsForRoleRequest::CopyFrom(const RbacPermissionsForRoleRequest& from) {
@@ -2895,12 +2926,12 @@ bool RbacPermissionsForRoleRequest::IsInitialized() const {
 void RbacPermissionsForRoleRequest::InternalSwap(RbacPermissionsForRoleRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  permissions_.InternalSwap(&other->permissions_);
-  swap(role_, other->role_);
+  _impl_.permissions_.InternalSwap(&other->_impl_.permissions_);
+  swap(_impl_.role_, other->_impl_.role_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacPermissionsForRoleRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[8]);
 }
@@ -2913,45 +2944,50 @@ class RbacRolesForUserRequest::_Internal {
 
 RbacRolesForUserRequest::RbacRolesForUserRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  roles_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacRolesForUserRequest)
 }
 RbacRolesForUserRequest::RbacRolesForUserRequest(const RbacRolesForUserRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      roles_(from.roles_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacRolesForUserRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.roles_){from._impl_.roles_}
+    , decltype(_impl_.user_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  user_ = from.user_;
+  _this->_impl_.user_ = from._impl_.user_;
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacRolesForUserRequest)
 }
 
-inline void RbacRolesForUserRequest::SharedCtor() {
-user_ = 0;
+inline void RbacRolesForUserRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.roles_){arena}
+    , decltype(_impl_.user_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RbacRolesForUserRequest::~RbacRolesForUserRequest() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacRolesForUserRequest)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacRolesForUserRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.roles_.~RepeatedPtrField();
 }
 
-void RbacRolesForUserRequest::ArenaDtor(void* object) {
-  RbacRolesForUserRequest* _this = reinterpret_cast< RbacRolesForUserRequest* >(object);
-  (void)_this;
-}
-void RbacRolesForUserRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacRolesForUserRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacRolesForUserRequest::Clear() {
@@ -2960,21 +2996,21 @@ void RbacRolesForUserRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  roles_.Clear();
-  user_ = 0;
+  _impl_.roles_.Clear();
+  _impl_.user_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacRolesForUserRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacRolesForUserRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 user = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.user_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3024,19 +3060,19 @@ uint8_t* RbacRolesForUserRequest::_InternalSerialize(
   // int32 user = 1;
   if (this->_internal_user() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_user(), target);
   }
 
   // repeated .palm.metasequoia.v1.Role roles = 2;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_roles_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_roles_size()); i < n; i++) {
+    const auto& repfield = this->_internal_roles(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, this->_internal_roles(i), target, stream);
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacRolesForUserRequest)
@@ -3053,43 +3089,39 @@ size_t RbacRolesForUserRequest::ByteSizeLong() const {
 
   // repeated .palm.metasequoia.v1.Role roles = 2;
   total_size += 1UL * this->_internal_roles_size();
-  for (const auto& msg : this->roles_) {
+  for (const auto& msg : this->_impl_.roles_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // int32 user = 1;
   if (this->_internal_user() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_user());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacRolesForUserRequest::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacRolesForUserRequest::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacRolesForUserRequest::GetClassData() const { return &_class_data_; }
 
-void RbacRolesForUserRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacRolesForUserRequest *>(to)->MergeFrom(
-      static_cast<const RbacRolesForUserRequest &>(from));
-}
 
-
-void RbacRolesForUserRequest::MergeFrom(const RbacRolesForUserRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacRolesForUserRequest)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacRolesForUserRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacRolesForUserRequest*>(&to_msg);
+  auto& from = static_cast<const RbacRolesForUserRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacRolesForUserRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  roles_.MergeFrom(from.roles_);
+  _this->_impl_.roles_.MergeFrom(from._impl_.roles_);
   if (from._internal_user() != 0) {
-    _internal_set_user(from._internal_user());
+    _this->_internal_set_user(from._internal_user());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacRolesForUserRequest::CopyFrom(const RbacRolesForUserRequest& from) {
@@ -3106,12 +3138,12 @@ bool RbacRolesForUserRequest::IsInitialized() const {
 void RbacRolesForUserRequest::InternalSwap(RbacRolesForUserRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  roles_.InternalSwap(&other->roles_);
-  swap(user_, other->user_);
+  _impl_.roles_.InternalSwap(&other->_impl_.roles_);
+  swap(_impl_.user_, other->_impl_.user_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacRolesForUserRequest::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[9]);
 }
@@ -3124,43 +3156,47 @@ class RbacRolesResponse::_Internal {
 
 RbacRolesResponse::RbacRolesResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  items_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacRolesResponse)
 }
 RbacRolesResponse::RbacRolesResponse(const RbacRolesResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      items_(from.items_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacRolesResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){from._impl_.items_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacRolesResponse)
 }
 
-inline void RbacRolesResponse::SharedCtor() {
+inline void RbacRolesResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RbacRolesResponse::~RbacRolesResponse() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacRolesResponse)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacRolesResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.items_.~RepeatedPtrField();
 }
 
-void RbacRolesResponse::ArenaDtor(void* object) {
-  RbacRolesResponse* _this = reinterpret_cast< RbacRolesResponse* >(object);
-  (void)_this;
-}
-void RbacRolesResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacRolesResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacRolesResponse::Clear() {
@@ -3169,15 +3205,15 @@ void RbacRolesResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  items_.Clear();
+  _impl_.items_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacRolesResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacRolesResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .palm.metasequoia.v1.Role items = 1;
       case 1:
@@ -3222,15 +3258,15 @@ uint8_t* RbacRolesResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .palm.metasequoia.v1.Role items = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_items_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_items(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacRolesResponse)
@@ -3247,35 +3283,31 @@ size_t RbacRolesResponse::ByteSizeLong() const {
 
   // repeated .palm.metasequoia.v1.Role items = 1;
   total_size += 1UL * this->_internal_items_size();
-  for (const auto& msg : this->items_) {
+  for (const auto& msg : this->_impl_.items_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacRolesResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacRolesResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacRolesResponse::GetClassData() const { return &_class_data_; }
 
-void RbacRolesResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacRolesResponse *>(to)->MergeFrom(
-      static_cast<const RbacRolesResponse &>(from));
-}
 
-
-void RbacRolesResponse::MergeFrom(const RbacRolesResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacRolesResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacRolesResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacRolesResponse*>(&to_msg);
+  auto& from = static_cast<const RbacRolesResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacRolesResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  items_.MergeFrom(from.items_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacRolesResponse::CopyFrom(const RbacRolesResponse& from) {
@@ -3292,11 +3324,11 @@ bool RbacRolesResponse::IsInitialized() const {
 void RbacRolesResponse::InternalSwap(RbacRolesResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  items_.InternalSwap(&other->items_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacRolesResponse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[10]);
 }
@@ -3309,43 +3341,47 @@ class RbacPermissionsResponse::_Internal {
 
 RbacPermissionsResponse::RbacPermissionsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  items_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacPermissionsResponse)
 }
 RbacPermissionsResponse::RbacPermissionsResponse(const RbacPermissionsResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      items_(from.items_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacPermissionsResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){from._impl_.items_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacPermissionsResponse)
 }
 
-inline void RbacPermissionsResponse::SharedCtor() {
+inline void RbacPermissionsResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RbacPermissionsResponse::~RbacPermissionsResponse() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacPermissionsResponse)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacPermissionsResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.items_.~RepeatedPtrField();
 }
 
-void RbacPermissionsResponse::ArenaDtor(void* object) {
-  RbacPermissionsResponse* _this = reinterpret_cast< RbacPermissionsResponse* >(object);
-  (void)_this;
-}
-void RbacPermissionsResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacPermissionsResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacPermissionsResponse::Clear() {
@@ -3354,15 +3390,15 @@ void RbacPermissionsResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  items_.Clear();
+  _impl_.items_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacPermissionsResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacPermissionsResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .palm.metasequoia.v1.Permission items = 1;
       case 1:
@@ -3407,15 +3443,15 @@ uint8_t* RbacPermissionsResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .palm.metasequoia.v1.Permission items = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_items_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_items(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacPermissionsResponse)
@@ -3432,35 +3468,31 @@ size_t RbacPermissionsResponse::ByteSizeLong() const {
 
   // repeated .palm.metasequoia.v1.Permission items = 1;
   total_size += 1UL * this->_internal_items_size();
-  for (const auto& msg : this->items_) {
+  for (const auto& msg : this->_impl_.items_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacPermissionsResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacPermissionsResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacPermissionsResponse::GetClassData() const { return &_class_data_; }
 
-void RbacPermissionsResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacPermissionsResponse *>(to)->MergeFrom(
-      static_cast<const RbacPermissionsResponse &>(from));
-}
 
-
-void RbacPermissionsResponse::MergeFrom(const RbacPermissionsResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionsResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacPermissionsResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacPermissionsResponse*>(&to_msg);
+  auto& from = static_cast<const RbacPermissionsResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacPermissionsResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  items_.MergeFrom(from.items_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacPermissionsResponse::CopyFrom(const RbacPermissionsResponse& from) {
@@ -3477,11 +3509,11 @@ bool RbacPermissionsResponse::IsInitialized() const {
 void RbacPermissionsResponse::InternalSwap(RbacPermissionsResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  items_.InternalSwap(&other->items_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacPermissionsResponse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[11]);
 }
@@ -3494,43 +3526,47 @@ class RbacUsersResponse::_Internal {
 
 RbacUsersResponse::RbacUsersResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  items_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:palm.metasequoia.v1.RbacUsersResponse)
 }
 RbacUsersResponse::RbacUsersResponse(const RbacUsersResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      items_(from.items_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  RbacUsersResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){from._impl_.items_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:palm.metasequoia.v1.RbacUsersResponse)
 }
 
-inline void RbacUsersResponse::SharedCtor() {
+inline void RbacUsersResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 RbacUsersResponse::~RbacUsersResponse() {
   // @@protoc_insertion_point(destructor:palm.metasequoia.v1.RbacUsersResponse)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void RbacUsersResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.items_.~RepeatedPtrField();
 }
 
-void RbacUsersResponse::ArenaDtor(void* object) {
-  RbacUsersResponse* _this = reinterpret_cast< RbacUsersResponse* >(object);
-  (void)_this;
-}
-void RbacUsersResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void RbacUsersResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void RbacUsersResponse::Clear() {
@@ -3539,15 +3575,15 @@ void RbacUsersResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  items_.Clear();
+  _impl_.items_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RbacUsersResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RbacUsersResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated .palm.metasequoia.v1.User items = 1;
       case 1:
@@ -3592,15 +3628,15 @@ uint8_t* RbacUsersResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   // repeated .palm.metasequoia.v1.User items = 1;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_items_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_items(i), target, stream);
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:palm.metasequoia.v1.RbacUsersResponse)
@@ -3617,35 +3653,31 @@ size_t RbacUsersResponse::ByteSizeLong() const {
 
   // repeated .palm.metasequoia.v1.User items = 1;
   total_size += 1UL * this->_internal_items_size();
-  for (const auto& msg : this->items_) {
+  for (const auto& msg : this->_impl_.items_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RbacUsersResponse::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     RbacUsersResponse::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RbacUsersResponse::GetClassData() const { return &_class_data_; }
 
-void RbacUsersResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<RbacUsersResponse *>(to)->MergeFrom(
-      static_cast<const RbacUsersResponse &>(from));
-}
 
-
-void RbacUsersResponse::MergeFrom(const RbacUsersResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacUsersResponse)
-  GOOGLE_DCHECK_NE(&from, this);
+void RbacUsersResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<RbacUsersResponse*>(&to_msg);
+  auto& from = static_cast<const RbacUsersResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:palm.metasequoia.v1.RbacUsersResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  items_.MergeFrom(from.items_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RbacUsersResponse::CopyFrom(const RbacUsersResponse& from) {
@@ -3662,11 +3694,11 @@ bool RbacUsersResponse::IsInitialized() const {
 void RbacUsersResponse::InternalSwap(RbacUsersResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  items_.InternalSwap(&other->items_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RbacUsersResponse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_metasequoia_2eproto_getter, &descriptor_table_metasequoia_2eproto_once,
       file_level_metadata_metasequoia_2eproto[12]);
 }
@@ -3676,43 +3708,56 @@ void RbacUsersResponse::InternalSwap(RbacUsersResponse* other) {
 }  // namespace metasequoia
 }  // namespace palm
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::Permission* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::Permission >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::Permission*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::Permission >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::Permission >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::Resource* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::Resource >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::Resource*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::Resource >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::Resource >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::Role* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::Role >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::Role*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::Role >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::Role >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::User* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::User >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::User*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::User >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::User >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacCanRequest* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacCanRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacCanRequest*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacCanRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacCanRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacHasRequest* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacHasRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacHasRequest*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacHasRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacHasRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionItem* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionItem >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionItem*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionItem >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacPermissionItem >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionsForUserRequest* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionsForUserRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionsForUserRequest*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionsForUserRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacPermissionsForUserRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionsForRoleRequest* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionsForRoleRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionsForRoleRequest*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionsForRoleRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacPermissionsForRoleRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacRolesForUserRequest* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacRolesForUserRequest >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacRolesForUserRequest*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacRolesForUserRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacRolesForUserRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacRolesResponse* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacRolesResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacRolesResponse*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacRolesResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacRolesResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionsResponse* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionsResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacPermissionsResponse*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacPermissionsResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacPermissionsResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacUsersResponse* Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacUsersResponse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::palm::metasequoia::v1::RbacUsersResponse*
+Arena::CreateMaybeMessage< ::palm::metasequoia::v1::RbacUsersResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::palm::metasequoia::v1::RbacUsersResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

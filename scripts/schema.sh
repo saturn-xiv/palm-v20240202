@@ -11,10 +11,7 @@ function generate_goard() {
 
     echo 'generate code for goard'
     local target=$WORKSPACE/gourd
-    if [ -d $target ]; then
-        rm -r $target
-    fi
-    mkdir -p $target/include/palm $target/src
+    rm -f $target/include/*.h $target/*.cc $target/*.cpp
     thrift -out $target --gen cpp:no_skeleton -r $PALM_PROTOCOLS/*.thrift
 
     $PROTOBUF_ROOT/bin/protoc -I $PALM_PROTOCOLS \
