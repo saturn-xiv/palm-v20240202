@@ -1,0 +1,95 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.github.saturn_xiv.palm.plugins.rbac.v1";
+option go_package = "github.com/saturn_xiv/fig/rbac/v2";
+package palm.rbac.v1;
+
+import "google/protobuf/empty.proto";
+
+// ----------------------------------------------------------------------------
+
+message Permission {
+  oneof subject {
+    int32 user = 1;
+    Role role = 2;
+  }
+  Resource object = 11;
+  string action = 12;
+}
+message Resource {
+  oneof id {
+    string s = 1;
+    int32 i = 2;
+  }
+  string type = 11;
+}
+
+message Role {
+  oneof by {
+    google.protobuf.Empty administrator = 1;
+    google.protobuf.Empty root = 2;
+    string code = 3;
+  }
+}
+message User {
+  oneof by {
+    int32 id = 1;
+    string code = 2;
+  }
+}
+
+service Rbac {
+  rpc Can(RbacCanRequest) returns (google.protobuf.Empty) {}
+  rpc Has(RbacHasRequest) returns (google.protobuf.Empty) {}
+
+  rpc GetRolesForUser(User) returns (RbacRolesResponse) {};
+  rpc GetImplicitRolesForUser(User) returns (RbacRolesResponse) {};
+  rpc GetUsersForRole(Role) returns (RbacUsersResponse) {};
+  rpc GetImplicitUsersForRole(Role) returns (RbacUsersResponse) {};
+  rpc AddRolesForUser(RbacRolesForUserRequest) returns (google.protobuf.Empty) {
+  };
+  rpc DeleteRolesForUser(RbacRolesForUserRequest)
+      returns (google.protobuf.Empty) {};
+  rpc AddPermissionsForRole(RbacPermissionsForRoleRequest)
+      returns (google.protobuf.Empty) {};
+  rpc DeletePermissionsForRole(RbacPermissionsForRoleRequest)
+      returns (google.protobuf.Empty) {};
+
+  rpc GetPermissionsForUser(User) returns (RbacPermissionsResponse) {};
+  rpc GetImplicitPermissionsForUser(User) returns (RbacPermissionsResponse) {};
+  rpc AddPermissionsForUser(RbacPermissionsForUserRequest)
+      returns (google.protobuf.Empty) {};
+  rpc DeletePermissionsForUser(RbacPermissionsForUserRequest)
+      returns (google.protobuf.Empty) {};
+}
+
+message RbacCanRequest {
+  int32 user = 1;
+  Resource object = 2;
+  string action = 3;
+}
+
+message RbacHasRequest {
+  int32 user = 1;
+  Role role = 2;
+}
+
+message RbacPermissionItem {
+  string action = 1;
+  Resource resource = 2;
+}
+message RbacPermissionsForUserRequest {
+  int32 user = 1;
+  repeated RbacPermissionItem permissions = 2;
+}
+message RbacPermissionsForRoleRequest {
+  Role role = 1;
+  repeated RbacPermissionItem permissions = 2;
+}
+message RbacRolesForUserRequest {
+  int32 user = 1;
+  repeated Role roles = 2;
+}
+message RbacRolesResponse { repeated Role items = 1; }
+message RbacPermissionsResponse { repeated Permission items = 1; }
+message RbacUsersResponse { repeated User items = 1; }

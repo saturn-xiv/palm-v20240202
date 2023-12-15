@@ -38,6 +38,9 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
+  "[thrift]": {
+    "editor.defaultFormatter": "mrkou47.thrift-syntax-support"
+  },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
