@@ -14,6 +14,6 @@ defmodule Aloe.Setting do
   def changeset(setting, attrs) do
     setting
     |> cast(attrs, [:key, :value, :version, :updated_at, :created_at])
-    |> validate_required([:key, :value])
+    |> validate_required([:key, :value, :version, :updated_at, :created_at])
   end
 end
