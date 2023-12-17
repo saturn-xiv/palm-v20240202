@@ -49,5 +49,8 @@
   },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[elixir]": {
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
   }
 }
