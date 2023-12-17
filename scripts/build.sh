@@ -8,6 +8,11 @@ export TARGET=$WORK_DIR/tmp/palm-$GIT_VERSION
 
 function build_phoenix() {
     echo "build $1 project"
+    cd $WORK_DIR/$1/assets
+    if [ ! -d node_modules ]
+    then
+        npm install
+    fi
     cd $WORK_DIR/$1
     mix deps.get --only prod
     MIX_ENV=prod mix compile
