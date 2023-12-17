@@ -1,2 +1,9 @@
-# palm
-A total free education &amp; translation &amp; ops solution.
+# PALM
+
+## Usage
+
+```bash
+$ sudo pacman -S elixir inotify-tools
+$ cd app_name
+$ mix phx.server
+```
