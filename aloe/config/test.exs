@@ -6,18 +6,15 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :aloe, Aloe.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "aloe_test#{System.get_env("MIX_TEST_PARTITION")}",
-  pool: Ecto.Adapters.SQL.Sandbox,
-  pool_size: 10
+  database: Path.expand("../aloe_test.db", Path.dirname(__ENV__.file)),
+  pool_size: 5,
+  pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :aloe, AloeWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "ujCFrurflJmLqnqViPcfEr4A+N17/vBLoDPd1g5BS8RyTr0I805+NDPrqfPesp6A",
+  secret_key_base: "d64+rtVVU0SuqlUbsRV//1mD5O2IfpZqWiYx9eSUMamgv8qAm/gwa+9Vj+GL9VsE",
   server: false
 
 # In test we don't send emails.

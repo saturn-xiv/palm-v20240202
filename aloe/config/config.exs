@@ -20,7 +20,7 @@ config :aloe, AloeWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Aloe.PubSub,
-  live_view: [signing_salt: "p3WVlscK"]
+  live_view: [signing_salt: "Osg6abAB"]
 
 # Configures the mailer
 #

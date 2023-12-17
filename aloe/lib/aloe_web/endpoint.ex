@@ -7,7 +7,7 @@ defmodule AloeWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_aloe_key",
-    signing_salt: "jgY4NOLE",
+    signing_salt: "pOY3+oiT",
     same_site: "Lax"
   ]
 

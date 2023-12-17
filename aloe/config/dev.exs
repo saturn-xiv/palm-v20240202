@@ -2,13 +2,10 @@ import Config
 
 # Configure your database
 config :aloe, Aloe.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "aloe_dev",
+  database: Path.expand("../aloe_dev.db", Path.dirname(__ENV__.file)),
+  pool_size: 5,
   stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+  show_sensitive_data_on_connection_error: true
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -23,7 +20,7 @@ config :aloe, AloeWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "zMBYLzgcMmiOisq0HzVGcB2pVJDG5RbkUcznW0lSi2MpirunSEJKuWK5dRGO8xZr",
+  secret_key_base: "s2NyEP6uFsboNW0ymgAWUJNxJW/2X0IM963E57lf1cG+3Nur2PkrHqAcO+9D1m4E",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
