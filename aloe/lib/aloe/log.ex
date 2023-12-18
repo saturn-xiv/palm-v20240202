@@ -3,7 +3,7 @@ defmodule Aloe.Log do
   import Ecto.Changeset
 
   schema "logs" do
-    field(:type, :string)
+    field(:type, Ecto.Enum, values: [:system, :user])
     field(:ip, :string)
     field(:message, :string)
     field(:created_at, :utc_datetime)

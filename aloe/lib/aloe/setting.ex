@@ -16,4 +16,12 @@ defmodule Aloe.Setting do
     |> cast(attrs, [:key, :value, :version, :updated_at, :created_at])
     |> validate_required([:key, :value, :version, :updated_at, :created_at])
   end
+
+  defmodule Administrator do
+    defstruct name: "root", password: "123456"
+
+    def key() do
+      "administrator"
+    end
+  end
 end
