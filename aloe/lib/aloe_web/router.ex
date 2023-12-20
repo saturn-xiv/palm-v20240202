@@ -2,22 +2,49 @@ defmodule AloeWeb.Router do
   use AloeWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, html: {AloeWeb.Layouts, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_live_flash)
+    plug(:put_root_layout, html: {AloeWeb.Layouts, :root})
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/", AloeWeb do
-    pipe_through :browser
+    pipe_through(:browser)
 
-    get "/", PageController, :home
+    get("/", PageController, :home)
+  end
+
+  scope "/users", AloeWeb.User do
+    pipe_through(:browser)
+
+    get("/sign-in", SessionController, :new)
+    post("/sign-in", SessionController, :create)
+    delete("/sign-out", SessionController, :delete)
+    resources("/logs", LogController, only: [:index])
+  end
+
+  scope "/router", AloeWeb.Router do
+    pipe_through(:browser)
+
+    get("/status", DashboardController, :show)
+    post("/reboot", DashboardController, :reboot)
+    post("/apply", DashboardController, :apply)
+
+    get("/lan", WanController, :edit)
+    post("/lan", WanController, :update)
+    get("/dmz", DmzController, :edit)
+    post("/dmz", DmzController, :update)
+    get("/guest", GuestController, :edit)
+    post("/guest", GuestController, :update)
+    resources("/wan", WanController, only: [:index, :edit, :update])
+
+    resources("/clients", ClientController, only: [:index, :edit, :update, :delete])
   end
 
   # Other scopes may use custom stacks.
@@ -35,10 +62,10 @@ defmodule AloeWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/dev" do
-      pipe_through :browser
+      pipe_through(:browser)
 
-      live_dashboard "/dashboard", metrics: AloeWeb.Telemetry
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+      live_dashboard("/dashboard", metrics: AloeWeb.Telemetry)
+      forward("/mailbox", Plug.Swoosh.MailboxPreview)
     end
   end
 end

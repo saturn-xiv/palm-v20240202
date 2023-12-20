@@ -1,4 +1,4 @@
-defmodule AloeWeb.PageController do
+defmodule AloeWeb.ClientController do
   use AloeWeb, :controller
 
   def home(conn, _params) do
