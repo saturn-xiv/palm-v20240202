@@ -11,8 +11,7 @@ defmodule Aloe.Application do
       AloeWeb.Telemetry,
       Aloe.Repo,
       {Ecto.Migrator,
-        repos: Application.fetch_env!(:aloe, :ecto_repos),
-        skip: skip_migrations?()},
+       repos: Application.fetch_env!(:aloe, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:aloe, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Aloe.PubSub},
       # Start the Finch HTTP client for sending emails
