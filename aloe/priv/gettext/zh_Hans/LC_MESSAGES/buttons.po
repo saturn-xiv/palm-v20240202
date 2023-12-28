@@ -1,0 +1,5 @@
+msgid "submit"
+msgstr "提交"
+
+msgid "reset"
+msgstr "重写"

@@ -1,7 +1,8 @@
 defmodule AloeWeb.User.SessionController do
   use AloeWeb, :controller
 
-  def new(conn, _params) do
+  def new(conn, params) do
+    IO.puts("$$$ #{params["locale"]}")
     render(conn, :new, layout: false)
   end
 

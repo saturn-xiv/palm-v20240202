@@ -20,31 +20,33 @@ defmodule AloeWeb.Router do
     get("/", PageController, :home)
   end
 
-  scope "/users", AloeWeb.User do
-    pipe_through(:browser)
+  scope "/:locale" do
+    scope "/users", AloeWeb.User do
+      pipe_through(:browser)
 
-    get("/sign-in", SessionController, :new)
-    post("/sign-in", SessionController, :create)
-    delete("/sign-out", SessionController, :delete)
-    resources("/logs", LogController, only: [:index])
-  end
+      get("/sign-in", SessionController, :new)
+      post("/sign-in", SessionController, :create)
+      delete("/sign-out", SessionController, :delete)
+      resources("/logs", LogController, only: [:index])
+    end
 
-  scope "/router", AloeWeb.Router do
-    pipe_through(:browser)
+    scope "/router", AloeWeb.Router do
+      pipe_through(:browser)
 
-    get("/status", DashboardController, :show)
-    post("/reboot", DashboardController, :reboot)
-    post("/apply", DashboardController, :apply)
+      get("/status", DashboardController, :show)
+      post("/reboot", DashboardController, :reboot)
+      post("/apply", DashboardController, :apply)
 
-    get("/lan", WanController, :edit)
-    post("/lan", WanController, :update)
-    get("/dmz", DmzController, :edit)
-    post("/dmz", DmzController, :update)
-    get("/guest", GuestController, :edit)
-    post("/guest", GuestController, :update)
-    resources("/wan", WanController, only: [:index, :edit, :update])
+      get("/lan", WanController, :edit)
+      post("/lan", WanController, :update)
+      get("/dmz", DmzController, :edit)
+      post("/dmz", DmzController, :update)
+      get("/guest", GuestController, :edit)
+      post("/guest", GuestController, :update)
+      resources("/wan", WanController, only: [:index, :edit, :update])
 
-    resources("/clients", ClientController, only: [:index, :edit, :update, :delete])
+      resources("/clients", ClientController, only: [:index, :edit, :update, :delete])
+    end
   end
 
   # Other scopes may use custom stacks.
