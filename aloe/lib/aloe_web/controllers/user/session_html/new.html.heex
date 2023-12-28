@@ -30,7 +30,10 @@
       </form>
 
       <p>
-        <AloeWeb.PageHTML.switch_languages locale={@locale} />
+        <AloeWeb.PageHTML.switch_languages
+          locale={@locale}
+          path={Phoenix.Controller.current_path(@conn)}
+        />
       </p>
     </div>
     <div class="col-md-4"></div>
