@@ -8,9 +8,9 @@ export CODE="palm-spring"
 buildah pull archlinux:latest
 buildah bud --layers -t $CODE .
 podman save --format=oci-archive -o $CODE-$VERSION.tar $CODE
-# XZ_OPT=-9 tar -cJf - $CODE-$VERSION.tar | split -d -b 3G - $CODE-$VERSION.tar.xz.
-md5sum $CODE-$VERSION.tar >$CODE-$VERSION.md5
-# cat palm-jammy.tar.xz.?? | xz --decompress
+split -d -b 3G $CODE-$VERSION.tar $CODE-$VERSION.tar.
+md5sum $CODE-$VERSION.tar* >$CODE-$VERSION.md5
+# cat $CODE-$VERSION.tar.?? >$CODE-$VERSION.tar
 
 echo "done($CODE-$VERSION.tar)."
 

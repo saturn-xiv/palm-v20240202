@@ -6,7 +6,7 @@ RUN pacman-key --init
 RUN pacman-key --recv-keys 9B7A287D9A2EC608
 RUN pacman -Syu --needed --noconfirm
 RUN pacman -S --needed --noconfirm base-devel aarch64-linux-gnu-gcc risc-v \
-    vim git cmake thrift wget zsh man-db \
+    vim git cmake thrift wget zsh man-db man-pages \
     pwgen sshpass openssl openssh rsync zip unzip tree tmux asciidoc doxygen cpio \
     clang llvm lld lldb mold bison flex ninja bazel \
     imagemagick ffmpeg xorg-font-util \
