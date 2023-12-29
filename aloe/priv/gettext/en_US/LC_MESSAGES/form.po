@@ -1,0 +1,12 @@
+msgid "fields.username.label"
+msgstr "Username"
+
+msgid "fields.username.help"
+msgstr "We'll never share your info with anyone else."
+
+msgid "fields.password.label"
+msgstr "Password"
+
+msgid "fields.reamber-me.label"
+msgstr "Reamber me"
+
