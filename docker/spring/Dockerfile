@@ -259,9 +259,7 @@ RUN zsh -c "source $HOME/.zshrc \
 # https://grpc.io/docs/languages/go/quickstart/
 RUN zsh -c "source $HOME/.zshrc \
     && go install google.golang.org/protobuf/cmd/protoc-gen-go@latest \
-    && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest \
-    && go get -u google.golang.org/grpc"
-
+    && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest"
 
 # https://github.com/google/flatbuffers
 ENV FLATBUFFERS_VERSION "v23.5.26"
