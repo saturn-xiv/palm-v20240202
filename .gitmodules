@@ -1,0 +1,3 @@
+[submodule "casbin-server"]
+	path = casbin-server
+	url = https://github.com/casbin/casbin-server.git
