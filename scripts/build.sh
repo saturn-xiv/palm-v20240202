@@ -181,6 +181,18 @@ function build_musa() {
 
 }
 
+function build_gardenia() {
+    echo "build gardenia project"
+    cd $WORKSPACE/gardenia/
+    mvn clean
+    mvn package -Dmaven.test.skip=true
+
+    mkdir -p $TARGET_DIR/gardenia
+    cp -r application-orig.properties \
+        target/gardenia-*.jar $TARGET_DIR/gardenia/
+
+}
+
 function build_loquat() {
     echo "build loquat with gcc-$1"
     apt install -y cmake g++-$1 golang libunwind-dev libboost-all-dev
@@ -241,6 +253,7 @@ mkdir -p $TARGET_DIR
 build_lily
 build_morus
 build_musa
+build_gardenia
 
 if [ $UBUNTU_CODENAME == "jammy" ]; then
     build_loquat 12
