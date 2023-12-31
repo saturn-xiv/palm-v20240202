@@ -211,6 +211,21 @@ function build_loquat() {
     cp $build_root/loquat $TARGET_DIR/bin/$arch/
 }
 
+function build_casbin_server() {
+    # https://pkg.go.dev/cmd/link
+    echo "build casbin-server@$2"
+
+    cd $WORKSPACE/casbin-server/
+    patch proto/casbin.proto $WORKSPACE/scripts/casbin.patch
+    protoc -I proto --go_out=plugins=grpc:proto proto/casbin.proto
+
+    GOOS=linux GOARCH=$1 go build -o casbin -ldflags "-s -w"
+    mkdir -p $TARGET_DIR/bin/$2
+    mv casbin $TARGET_DIR/bin/$2/
+
+    git checkout -f
+}
+
 function copy_jdk() {
     local x64_jdk_url="https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-x64_bin.tar.gz"
     local aarch64_jdk_url="https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-aarch64_bin.tar.gz"
@@ -254,6 +269,10 @@ build_lily
 build_morus
 build_musa
 build_gardenia
+build_casbin_server amd64 x86_64
+build_casbin_server arm64 aarch64
+build_casbin_server arm armhf
+build_casbin_server riscv64 riscv64
 
 if [ $UBUNTU_CODENAME == "jammy" ]; then
     build_loquat 12

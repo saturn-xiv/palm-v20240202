@@ -1,0 +1,17 @@
+--- casbin-server/proto/casbin.proto	2023-12-31 03:59:14.537908324 +0000
++++ palm/protocols/casbin.proto	2023-12-31 04:34:47.347869860 +0000
+@@ -15,12 +15,12 @@
+ syntax = "proto3";
+ 
+ option java_multiple_files = true;
+-option java_package = "io.grpc.examples.proto";
++option java_package = "com.github.saturn_xiv.palm.plugins.casbin.v1";
+ option java_outer_classname = "CasbinProto";
+ option go_package = "./;proto";
+ option csharp_namespace = "CasbinOrg.Grpc";
+ 
+-package proto;
++package palm.lily.v1;
+ 
+ // The Casbin service definition.
+ service Casbin {
