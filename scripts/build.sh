@@ -135,6 +135,64 @@ copy_assets() {
     echo "$(date -R)" >>$TARGET_DIR/VERSION
 }
 
+function build_lily() {
+    echo "build lily project"
+    cd $WORKSPACE
+    cp -a lily $TARGET_DIR/
+}
+
+function build_morus() {
+    echo "build morus project"
+    cd $WORKSPACE/morus/
+    if [ ! -d node_modules ]; then
+        npm install
+    fi
+    if [ -d dist ]; then
+        rm -r dist
+    fi
+    npx webpack --mode=production
+
+    mkdir -p $TARGET_DIR/morus
+    cp README.md config.json.orig \
+        dist/morus-*.js $TARGET_DIR/morus/
+
+}
+
+function build_musa() {
+    echo "build musa project"
+    cd $WORKSPACE/musa/
+    mvn clean
+    mvn package -Dmaven.test.skip=true
+
+    mkdir -p $TARGET_DIR/musa
+    cp -r README.md application-orig.properties mybatis-config.xml com wechatpay-orig \
+        target/musa-*.jar $TARGET_DIR/musa/
+
+}
+
+function copy_jdk() {
+    local x64_jdk_url="https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-x64_bin.tar.gz"
+    local aarch64_jdk_url="https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-aarch64_bin.tar.gz"
+
+    local jdk_version="21.0.1"
+    local x64_jdk_file=$HOME/downloads/openjdk-${jdk_version}_linux-x64_bin.tar.gz
+    local aarch64_jdk_file=$HOME/downloads/openjdk-${jdk_version}_linux-aarch64_bin.tar.gz
+
+    if [ ! -f $x64_jdk_file ]; then
+        wget -P $HOME/downloads/ $x64_jdk_url
+    fi
+    if [ ! -f $aarch64_jdk_file ]; then
+        wget -P $HOME/downloads/ $aarch64_jdk_url
+    fi
+
+    mkdir -p $TARGET_DIR/jdk
+    cd $TARGET_DIR/jdk/
+    tar xf $x64_jdk_file
+    mv jdk-$jdk_version x64
+    tar xf $aarch64_jdk_file
+    mv jdk-$jdk_version aarch64
+}
+
 # -----------------------------------------------------------------------------
 if [ $ID != "ubuntu" ]; then
     echo "unsupported system $ID"
@@ -151,6 +209,10 @@ if [ -d $TARGET_DIR ]; then
 fi
 mkdir -p $TARGET_DIR
 
+build_lily
+build_morus
+build_musa
+
 build_dashboard fig
 build_dashboard aloe
 
@@ -164,6 +226,7 @@ install_deb armhf
 build_cargo_armhf
 
 copy_assets
+copy_jdk
 
 cd $(dirname $TARGET_DIR)
 XZ_OPT=-9 tar -cJf $PACKAGE_NAME.tar.xz $PACKAGE_NAME
