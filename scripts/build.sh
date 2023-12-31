@@ -6,8 +6,8 @@ set -e
 
 export WORKSPACE=$PWD
 export GIT_VERSION=$(git describe --tags --always --dirty --first-parent)
-export PKG_NAME="palm-$VERSION_CODENAME-$GIT_VERSION"
-export TARGET_DIR=$WORKSPACE/tmp/$PKG_NAME
+export PACKAGE_NAME="palm-$VERSION_CODENAME-$GIT_VERSION"
+export TARGET_DIR=$WORKSPACE/tmp/$PACKAGE_NAME
 
 function build_dashboard() {
     cd $WORKSPACE/$1/dashboard
@@ -141,6 +141,16 @@ if [ $ID != "ubuntu" ]; then
     exit 1
 fi
 
+if [ -f $TARGET_DIR.tar.xz ]; then
+    echo "$PACKAGE_NAME.tar.xz already exists!"
+    exit 0
+fi
+
+if [ -d $TARGET_DIR ]; then
+    rm -r $TARGET_DIR
+fi
+mkdir -p $TARGET_DIR
+
 build_dashboard fig
 build_dashboard aloe
 
@@ -155,15 +165,8 @@ build_cargo_armhf
 
 copy_assets
 
-mkdir -p $TARGET_DIR/fig
-build_cargo fig
-
-mkdir -p $TARGET_DIR/aloe
-build_cargo aloe
-build_dashboard aloe
-
-cd $(dirname $target)
-XZ_OPT=-9 tar -cJf $PKG_NAME.tar.xz $PKG_NAME
+cd $(dirname $TARGET_DIR)
+XZ_OPT=-9 tar -cJf $PACKAGE_NAME.tar.xz $PACKAGE_NAME
 
 echo "done($GIT_VERSION)."
 exit 0
