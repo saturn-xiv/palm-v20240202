@@ -28,6 +28,17 @@ function install_deb() {
         libpq5:$1 libpq-dev:$1 libmysqlclient-dev:$1 libsqlite3-dev:$1
 }
 
+function build_cargo_musl() {
+    echo "build $2 for $1"
+    local target="$1-unknown-linux-musl"
+
+    cargo clean
+    cargo build --quiet --release --target $target -p $2
+
+    mkdir -p $WORKSPACE/bin/$1
+    cp target/$target/release/$2 $TARGET_DIR/bin/$1/
+}
+
 function build_cargo_x86_64() {
     echo "build palm for x84-64"
     cd $WORKSPACE
@@ -224,6 +235,9 @@ build_cargo_aarch64
 
 install_deb armhf
 build_cargo_armhf
+
+build_cargo_musl x86_64 coconut
+build_cargo_musl aarch64 coconut
 
 copy_assets
 copy_jdk
