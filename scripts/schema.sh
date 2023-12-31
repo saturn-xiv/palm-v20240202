@@ -34,8 +34,8 @@ function generate_grpc_for_cpp() {
     mkdir -p $1/src
     $PROTOBUF_ROOT/bin/protoc -I $PALM_PROTOCOLS \
         -I $PROTOBUF_ROOT/include/google/protobuf \
-        --${1}_out=$1/src --grpc_out=$1/src \
-        --plugin=protoc-gen-grpc=$PROTOBUF_ROOT/bin/grpc_${1}_plugin \
+        --cpp_out=$1/src --grpc_out=$1/src \
+        --plugin=protoc-gen-grpc=$PROTOBUF_ROOT/bin/grpc_cpp_plugin \
         $PALM_PROTOCOLS/*.proto
     mkdir -p $1/include
     mv $1/src/*.h $1/include/
@@ -184,8 +184,8 @@ for l in "${languages[@]}"; do
 done
 
 generate_grpc_for_php
-generate_grpc_for_cpp
-generate_typescript $WORKSPACE/sdk/typescript
+generate_grpc_for_cpp $WORKSPACE/sdk/cpp
+generate_grpc_for_typescript $WORKSPACE/sdk/typescript
 
 generate_thrift_for_cpp loquat $WORKSPACE/loquat/gourd
 generate_musa
