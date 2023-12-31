@@ -36,14 +36,6 @@ uint32_t Aes_encrypt_args::read(::apache::thrift::protocol::TProtocol* iprot) {
     {
       case 1:
         if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->app_id);
-          this->__isset.app_id = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
           xfer += iprot->readBinary(this->plain);
           this->__isset.plain = true;
         } else {
@@ -67,11 +59,7 @@ uint32_t Aes_encrypt_args::write(::apache::thrift::protocol::TProtocol* oprot) c
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("Aes_encrypt_args");
 
-  xfer += oprot->writeFieldBegin("app_id", ::apache::thrift::protocol::T_STRING, 1);
-  xfer += oprot->writeString(this->app_id);
-  xfer += oprot->writeFieldEnd();
-
-  xfer += oprot->writeFieldBegin("plain", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin("plain", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeBinary(this->plain);
   xfer += oprot->writeFieldEnd();
 
@@ -90,11 +78,7 @@ uint32_t Aes_encrypt_pargs::write(::apache::thrift::protocol::TProtocol* oprot) 
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("Aes_encrypt_pargs");
 
-  xfer += oprot->writeFieldBegin("app_id", ::apache::thrift::protocol::T_STRING, 1);
-  xfer += oprot->writeString((*(this->app_id)));
-  xfer += oprot->writeFieldEnd();
-
-  xfer += oprot->writeFieldBegin("plain", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin("plain", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeBinary((*(this->plain)));
   xfer += oprot->writeFieldEnd();
 
@@ -239,14 +223,6 @@ uint32_t Aes_decrypt_args::read(::apache::thrift::protocol::TProtocol* iprot) {
     {
       case 1:
         if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->app_id);
-          this->__isset.app_id = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
           xfer += iprot->readBinary(this->code);
           this->__isset.code = true;
         } else {
@@ -270,11 +246,7 @@ uint32_t Aes_decrypt_args::write(::apache::thrift::protocol::TProtocol* oprot) c
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("Aes_decrypt_args");
 
-  xfer += oprot->writeFieldBegin("app_id", ::apache::thrift::protocol::T_STRING, 1);
-  xfer += oprot->writeString(this->app_id);
-  xfer += oprot->writeFieldEnd();
-
-  xfer += oprot->writeFieldBegin("code", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin("code", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeBinary(this->code);
   xfer += oprot->writeFieldEnd();
 
@@ -293,11 +265,7 @@ uint32_t Aes_decrypt_pargs::write(::apache::thrift::protocol::TProtocol* oprot) 
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("Aes_decrypt_pargs");
 
-  xfer += oprot->writeFieldBegin("app_id", ::apache::thrift::protocol::T_STRING, 1);
-  xfer += oprot->writeString((*(this->app_id)));
-  xfer += oprot->writeFieldEnd();
-
-  xfer += oprot->writeFieldBegin("code", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin("code", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeBinary((*(this->code)));
   xfer += oprot->writeFieldEnd();
 
@@ -414,19 +382,18 @@ uint32_t Aes_decrypt_presult::read(::apache::thrift::protocol::TProtocol* iprot)
   return xfer;
 }
 
-void AesClient::encrypt(std::string& _return, const std::string& app_id, const std::string& plain)
+void AesClient::encrypt(std::string& _return, const std::string& plain)
 {
-  send_encrypt(app_id, plain);
+  send_encrypt(plain);
   recv_encrypt(_return);
 }
 
-void AesClient::send_encrypt(const std::string& app_id, const std::string& plain)
+void AesClient::send_encrypt(const std::string& plain)
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("encrypt", ::apache::thrift::protocol::T_CALL, cseqid);
 
   Aes_encrypt_pargs args;
-  args.app_id = &app_id;
   args.plain = &plain;
   args.write(oprot_);
 
@@ -473,19 +440,18 @@ void AesClient::recv_encrypt(std::string& _return)
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "encrypt failed: unknown result");
 }
 
-void AesClient::decrypt(std::string& _return, const std::string& app_id, const std::string& code)
+void AesClient::decrypt(std::string& _return, const std::string& code)
 {
-  send_decrypt(app_id, code);
+  send_decrypt(code);
   recv_decrypt(_return);
 }
 
-void AesClient::send_decrypt(const std::string& app_id, const std::string& code)
+void AesClient::send_decrypt(const std::string& code)
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("decrypt", ::apache::thrift::protocol::T_CALL, cseqid);
 
   Aes_decrypt_pargs args;
-  args.app_id = &app_id;
   args.code = &code;
   args.write(oprot_);
 
@@ -574,7 +540,7 @@ void AesProcessor::process_encrypt(int32_t seqid, ::apache::thrift::protocol::TP
 
   Aes_encrypt_result result;
   try {
-    iface_->encrypt(result.success, args.app_id, args.plain);
+    iface_->encrypt(result.success, args.plain);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != nullptr) {
@@ -628,7 +594,7 @@ void AesProcessor::process_decrypt(int32_t seqid, ::apache::thrift::protocol::TP
 
   Aes_decrypt_result result;
   try {
-    iface_->decrypt(result.success, args.app_id, args.code);
+    iface_->decrypt(result.success, args.code);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != nullptr) {
@@ -666,20 +632,19 @@ void AesProcessor::process_decrypt(int32_t seqid, ::apache::thrift::protocol::TP
   return processor;
 }
 
-void AesConcurrentClient::encrypt(std::string& _return, const std::string& app_id, const std::string& plain)
+void AesConcurrentClient::encrypt(std::string& _return, const std::string& plain)
 {
-  int32_t seqid = send_encrypt(app_id, plain);
+  int32_t seqid = send_encrypt(plain);
   recv_encrypt(_return, seqid);
 }
 
-int32_t AesConcurrentClient::send_encrypt(const std::string& app_id, const std::string& plain)
+int32_t AesConcurrentClient::send_encrypt(const std::string& plain)
 {
   int32_t cseqid = this->sync_->generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(this->sync_.get());
   oprot_->writeMessageBegin("encrypt", ::apache::thrift::protocol::T_CALL, cseqid);
 
   Aes_encrypt_pargs args;
-  args.app_id = &app_id;
   args.plain = &plain;
   args.write(oprot_);
 
@@ -751,20 +716,19 @@ void AesConcurrentClient::recv_encrypt(std::string& _return, const int32_t seqid
   } // end while(true)
 }
 
-void AesConcurrentClient::decrypt(std::string& _return, const std::string& app_id, const std::string& code)
+void AesConcurrentClient::decrypt(std::string& _return, const std::string& code)
 {
-  int32_t seqid = send_decrypt(app_id, code);
+  int32_t seqid = send_decrypt(code);
   recv_decrypt(_return, seqid);
 }
 
-int32_t AesConcurrentClient::send_decrypt(const std::string& app_id, const std::string& code)
+int32_t AesConcurrentClient::send_decrypt(const std::string& code)
 {
   int32_t cseqid = this->sync_->generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(this->sync_.get());
   oprot_->writeMessageBegin("decrypt", ::apache::thrift::protocol::T_CALL, cseqid);
 
   Aes_decrypt_pargs args;
-  args.app_id = &app_id;
   args.code = &code;
   args.write(oprot_);
 
