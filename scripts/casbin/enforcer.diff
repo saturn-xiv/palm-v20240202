@@ -1,0 +1,12 @@
+diff --git a/server/enforcer.go b/server/enforcer.go
+index 882f3b9..d922ce2 100644
+--- a/server/enforcer.go
++++ b/server/enforcer.go
+@@ -29,6 +29,7 @@ import (
+ 
+ // Server is used to implement proto.CasbinServer.
+ type Server struct {
++	pb.UnimplementedCasbinServer
+ 	enforcerMap map[int]*casbin.Enforcer
+ 	adapterMap  map[int]persist.Adapter
+ 	muE         sync.RWMutex

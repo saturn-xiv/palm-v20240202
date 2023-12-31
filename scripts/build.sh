@@ -215,15 +215,9 @@ function build_casbin_server() {
     # https://pkg.go.dev/cmd/link
     echo "build casbin-server@$2"
 
-    cd $WORKSPACE/casbin-server/
-    patch proto/casbin.proto $WORKSPACE/scripts/casbin.patch
-    protoc -I proto --go_out=plugins=grpc:proto proto/casbin.proto
-
     GOOS=linux GOARCH=$1 go build -o casbin -ldflags "-s -w"
     mkdir -p $TARGET_DIR/bin/$2
     mv casbin $TARGET_DIR/bin/$2/
-
-    git checkout -f
 }
 
 function copy_jdk() {
@@ -269,10 +263,28 @@ build_lily
 build_morus
 build_musa
 build_gardenia
+
+# ---------------------------
+cd $WORKSPACE/casbin-server/
+# diff -u casbin-server/proto/casbin.proto palm/protocols/casbin.proto >scripts/casbin/proto.patch
+patch proto/casbin.proto $WORKSPACE/scripts/proto.patch
+# git diff server > ../scripts/casbin/enforcer.diff
+git apply $WORKSPACE/scripts/casbin/enforcer.patch
+# https://github.com/casbin/casbin-server#protobuf-if-not-installed
+protoc -I proto \
+    --go_out=proto --go_opt=paths=source_relative \
+    --go-grpc_out=proto --go-grpc_opt=paths=source_relative \
+    proto/casbin.proto
+go get -u google.golang.org/protobuf
+go get -u google.golang.org/grpc
+go mod tidy
 build_casbin_server amd64 x86_64
 build_casbin_server arm64 aarch64
 build_casbin_server arm armhf
 build_casbin_server riscv64 riscv64
+git checkout -f
+
+# ---------------------------
 
 if [ $UBUNTU_CODENAME == "jammy" ]; then
     build_loquat 12
