@@ -181,6 +181,24 @@ function build_musa() {
 
 }
 
+function build_loquat() {
+    echo "build loquat with gcc-$1"
+    apt install -y cmake g++-$1 golang libunwind-dev libboost-all-dev
+
+    local arch=$(uname -p)
+    local build_root=$HOME/build/loquat-$arch
+
+    mkdir -p $build_root
+    CC=gcc-$1 CXX=g++-$1 cmake -DCMAKE_BUILD_TYPE=Release \
+        -DABSL_PROPAGATE_CXX_STD=ON -DTINK_USE_SYSTEM_OPENSSL=ON \
+        -DBUILD_COMPILER=OFF -DWITH_OPENSSL=OFF -DBUILD_JAVA=OFF -DBUILD_JAVASCRIPT=OFF -DBUILD_NODEJS=OFF -DBUILD_PYTHON=OFF \
+        -B $build_root -S $WORKSPACE/loquat
+    make -C $build_root
+
+    mkdir -p $TARGET_DIR/bin/$arch
+    cp $build_root/loquat $TARGET_DIR/bin/$arch/
+}
+
 function copy_jdk() {
     local x64_jdk_url="https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-x64_bin.tar.gz"
     local aarch64_jdk_url="https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-aarch64_bin.tar.gz"
@@ -224,6 +242,21 @@ build_lily
 build_morus
 build_musa
 
+if [ $UBUNTU_CODENAME == "jammy" ]; then
+    build_loquat 12
+fi
+
+if [ $UBUNTU_CODENAME == "focal" ]; then
+    build_loquat 11
+fi
+
+if [ $UBUNTU_CODENAME == "bionic" ]; then
+    build_loquat 11
+fi
+
+build_cargo_musl x86_64 coconut
+build_cargo_musl aarch64 coconut
+
 build_dashboard fig
 build_dashboard aloe
 
@@ -235,9 +268,6 @@ build_cargo_aarch64
 
 install_deb armhf
 build_cargo_armhf
-
-build_cargo_musl x86_64 coconut
-build_cargo_musl aarch64 coconut
 
 copy_assets
 copy_jdk
