@@ -3,14 +3,18 @@
 ## By Cmake(ONLY support focal yet)
 
 ```bash
-mkdir build
-cd build
-apt install -y cmake g++-10 golang libunwind-dev libboost-all-dev
-CC=gcc-10 CXX=g++-10 cmake -DCMAKE_BUILD_TYPE=Release \
-    -DABSL_PROPAGATE_CXX_STD=ON -DTINK_USE_SYSTEM_OPENSSL=OFF \
-    -DBUILD_COMPILER=OFF -DWITH_OPENSSL=OFF -DBUILD_JAVA=OFF -DBUILD_JAVASCRIPT=OFF -DBUILD_NODEJS=OFF -DBUILD_PYTHON=OFF \
+$ mkdir build
+$ cd build
+# for ubuntu
+$ sudo apt install -y cmake g++-12 golang libunwind-dev libboost-all-dev libevent-dev
+# for archlinux
+$ sudo pacman -S cmake gcc12 go libunwind boost libevent
+
+$ CC=gcc-12 CXX=g++-12 cmake -DCMAKE_BUILD_TYPE=Release \
+    -DABSL_PROPAGATE_CXX_STD=ON -DTINK_USE_SYSTEM_OPENSSL=ON \
+    -DBUILD_COMPILER=OFF -DWITH_OPENSSL=ON -DBUILD_JAVA=OFF -DBUILD_JAVASCRIPT=OFF -DBUILD_NODEJS=OFF -DBUILD_PYTHON=OFF \
     ..
-make loquat
+$ make loquat
 ```
 
 ## By Qemu

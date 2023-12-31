@@ -6,7 +6,7 @@ FetchContent_Declare(thrift
 )
 FetchContent_MakeAvailable(thrift)
 
-file(GLOB HEADER_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
+file(GLOB HEADER_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
 file(GLOB SOURCE_LIST CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 add_library(gourd STATIC ${SOURCE_LIST})
@@ -18,7 +18,7 @@ target_link_libraries(gourd PUBLIC
 )
 
 target_include_directories(gourd PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/src
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
   
   ${thrift_SOURCE_DIR}/lib/cpp/src
   ${thrift_SOURCE_DIR}/compiler/cpp/src
@@ -26,7 +26,7 @@ target_include_directories(gourd PUBLIC
 )
 
 source_group(
-  TREE "${CMAKE_CURRENT_SOURCE_DIR}/src"
+  TREE "${CMAKE_CURRENT_SOURCE_DIR}/include"
   PREFIX "Header Files"
   FILES ${HEADER_LIST}
 )
