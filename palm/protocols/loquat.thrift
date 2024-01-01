@@ -1,9 +1,10 @@
 namespace cpp loquat.v1
 namespace java com.github.saturn_xiv.palm.plugins.loquat.v1
 
-struct JwtVerfifyResponse{
+struct JwtVerfifyResponse {
     1:string subject,
-    2:string payload,
+    2:string jwt_id,
+    3:string payload,
 }
 
 service Jwt {
@@ -16,9 +17,14 @@ service Hmac {
     void verify(1:binary code, 2:binary plain);
 }
 
+struct AesEncryptResponse {
+    1:binary code,
+    2:binary salt,
+}
+
 service Aes {
-    binary encrypt(1:binary plain);
-    binary decrypt(1:binary code);
+    AesEncryptResponse encrypt(1:binary plain);
+    binary decrypt(1:binary code, 2:binary salt);
 }
 
 service Health {

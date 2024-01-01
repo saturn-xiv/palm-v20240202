@@ -1,6 +1,11 @@
 #include "loquat/env.hpp"
 #include "loquat/version.hpp"
 
+#include <boost/lexical_cast.hpp>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
+
 #include <tink/aead.h>
 #include <tink/aead/aead_config.h>
 #include <tink/aead/aes_gcm_key_manager.h>
@@ -36,20 +41,25 @@ loquat::Config::Config(const std::filesystem::path& file) {
   }
 }
 
-std::string loquat::Jwt::sign(const std::string& subject,
-                              const std::optional<std::string> audience,
-                              const std::chrono::seconds& ttl) {
+std::string loquat::Jwt::sign(const std::string& issuer,
+                              const std::string& subject,
+                              const std::string& audience,
+                              const std::chrono::seconds& ttl,
+                              const std::string& payload) {
+  const auto jwt_id = loquat::uuid();
+  spdlog::info("generate jwt token for ({}, {}, {}, {}, {})", issuer, subject,
+               audience, jwt_id, ttl.count());
   auto now = absl::Now();
-  auto raw_rb = crypto::tink::RawJwtBuilder()
-                    .SetIssuer(loquat::PROJECT_NAME)
-                    .SetSubject(subject)
-                    .SetNotBefore(now - absl::Seconds(1))
-                    .SetIssuedAt(now)
-                    .SetExpiration(now + absl::Seconds(ttl.count()));
-  if (audience) {
-    raw_rb = raw_rb.AddAudience(audience.value());
-  }
-  auto raw_r = raw_rb.Build();
+  auto raw_r = crypto::tink::RawJwtBuilder()
+                   .SetIssuer(issuer)
+                   .SetSubject(subject)
+                   .AddAudience(audience)
+                   .AddStringClaim(loquat::Jwt::PAYLOAD_CLAIM_NAME, payload)
+                   .SetJwtId(jwt_id)
+                   .SetNotBefore(now - absl::Seconds(1))
+                   .SetIssuedAt(now)
+                   .SetExpiration(now + absl::Seconds(ttl.count()))
+                   .Build();
   this->check(raw_r);
   auto raw = std::move(raw_r.value());
   auto jwt = this->load();
@@ -59,29 +69,38 @@ std::string loquat::Jwt::sign(const std::string& subject,
   return token;
 }
 
-std::string loquat::Jwt::verify(const std::string& token,
-                                const std::optional<std::string> audience) {
+std::tuple<std::string, std::string, std::string> loquat::Jwt::verify(
+    const std::string& token, const std::string& issuer,
+    const std::string& audience) {
   spdlog::debug("{}", token);
-  auto validator_b =
-      crypto::tink::JwtValidatorBuilder().IgnoreTypeHeader().IgnoreIssuer();
-  if (audience) {
-    spdlog::debug("test with audience({})", audience.value());
-    validator_b = validator_b.ExpectAudience(audience.value());
-  }
-  auto validator_r = validator_b.Build();
+  auto validator_r = crypto::tink::JwtValidatorBuilder()
+                         .IgnoreTypeHeader()
+                         .ExpectIssuer(issuer)
+                         .ExpectAudience(audience)
+                         .Build();
   this->check(validator_r);
   auto validator = std::move(validator_r.value());
 
   auto jwt = this->load();
-  auto payload_r = jwt->VerifyMacAndDecode(token, validator);
+  auto body_r = jwt->VerifyMacAndDecode(token, validator);
+  this->check(body_r);
+  auto body = std::move(body_r.value());
+
+  auto subject_r = body.GetSubject();
+  this->check(subject_r);
+  auto subject = std::move(subject_r.value());
+
+  auto jwt_id_r = body.GetJwtId();
+  this->check(jwt_id_r);
+  auto jwt_id = std::move(jwt_id_r.value());
+
+  auto payload_r = body.GetStringClaim(loquat::Jwt::PAYLOAD_CLAIM_NAME);
   this->check(payload_r);
   auto payload = std::move(payload_r.value());
 
-  auto subject_r = payload.GetSubject();
-  this->check(subject_r);
-  auto subject = std::move(subject_r.value());
-  spdlog::debug("get subject({})", subject);
-  return subject;
+  spdlog::debug("get ({}, {}, {})", jwt_id, subject, payload);
+
+  return std::make_tuple(subject, jwt_id, payload);
 }
 
 std::unique_ptr<crypto::tink::JwtMac> loquat::Jwt::load() {
@@ -116,19 +135,19 @@ std::unique_ptr<crypto::tink::Mac> loquat::HMac::load() {
   return mac;
 }
 
-std::string loquat::Aes::encrypt(const std::string& plain) {
+std::string loquat::Aes::encrypt(const std::string& plain,
+                                 const std::string& salt) {
   auto aes = this->load();
-  // FIXME
-  auto code_r = aes->Encrypt(plain, "");
+  auto code_r = aes->Encrypt(plain, salt);
   this->check(code_r);
   auto code = std::move(code_r.value());
   return code;
 }
 
-std::string loquat::Aes::decrypt(const std::string& code) {
+std::string loquat::Aes::decrypt(const std::string& code,
+                                 const std::string& salt) {
   auto aes = this->load();
-  // FIXME
-  auto plain_r = aes->Decrypt(code, "");
+  auto plain_r = aes->Decrypt(code, salt);
   this->check(plain_r);
   auto plain = std::move(plain_r.value());
   return plain;
@@ -187,4 +206,23 @@ std::unique_ptr<crypto::tink::KeysetHandle> loquat::Keyset::load(
     std::filesystem::permissions(file, std::filesystem::perms::owner_read);
     return keyset_handler;
   }
+}
+
+std::string loquat::random(const size_t len) {
+  std::random_device rd;
+  std::mt19937 mt(rd());
+  std::uniform_int_distribution<uint8_t> dist(0, 255);
+
+  std::vector<uint8_t> buf;
+  auto gen = std::bind(dist, mt);
+  buf.resize(len);
+  std::generate(buf.begin(), buf.end(), gen);
+
+  std::string str(buf.begin(), buf.end());
+  return str;
+}
+
+std::string loquat::uuid() {
+  boost::uuids::uuid it = boost::uuids::random_generator()();
+  return boost::lexical_cast<std::string>(it);
 }

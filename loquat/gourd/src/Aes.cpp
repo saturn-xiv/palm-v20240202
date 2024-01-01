@@ -114,8 +114,8 @@ uint32_t Aes_encrypt_result::read(::apache::thrift::protocol::TProtocol* iprot) 
     switch (fid)
     {
       case 0:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readBinary(this->success);
+        if (ftype == ::apache::thrift::protocol::T_STRUCT) {
+          xfer += this->success.read(iprot);
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -140,8 +140,8 @@ uint32_t Aes_encrypt_result::write(::apache::thrift::protocol::TProtocol* oprot)
   xfer += oprot->writeStructBegin("Aes_encrypt_result");
 
   if (this->__isset.success) {
-    xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRING, 0);
-    xfer += oprot->writeBinary(this->success);
+    xfer += oprot->writeFieldBegin("success", ::apache::thrift::protocol::T_STRUCT, 0);
+    xfer += this->success.write(oprot);
     xfer += oprot->writeFieldEnd();
   }
   xfer += oprot->writeFieldStop();
@@ -176,8 +176,8 @@ uint32_t Aes_encrypt_presult::read(::apache::thrift::protocol::TProtocol* iprot)
     switch (fid)
     {
       case 0:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readBinary((*(this->success)));
+        if (ftype == ::apache::thrift::protocol::T_STRUCT) {
+          xfer += (*(this->success)).read(iprot);
           this->__isset.success = true;
         } else {
           xfer += iprot->skip(ftype);
@@ -229,6 +229,14 @@ uint32_t Aes_decrypt_args::read(::apache::thrift::protocol::TProtocol* iprot) {
           xfer += iprot->skip(ftype);
         }
         break;
+      case 2:
+        if (ftype == ::apache::thrift::protocol::T_STRING) {
+          xfer += iprot->readBinary(this->salt);
+          this->__isset.salt = true;
+        } else {
+          xfer += iprot->skip(ftype);
+        }
+        break;
       default:
         xfer += iprot->skip(ftype);
         break;
@@ -250,6 +258,10 @@ uint32_t Aes_decrypt_args::write(::apache::thrift::protocol::TProtocol* oprot) c
   xfer += oprot->writeBinary(this->code);
   xfer += oprot->writeFieldEnd();
 
+  xfer += oprot->writeFieldBegin("salt", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeBinary(this->salt);
+  xfer += oprot->writeFieldEnd();
+
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
   return xfer;
@@ -267,6 +279,10 @@ uint32_t Aes_decrypt_pargs::write(::apache::thrift::protocol::TProtocol* oprot) 
 
   xfer += oprot->writeFieldBegin("code", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeBinary((*(this->code)));
+  xfer += oprot->writeFieldEnd();
+
+  xfer += oprot->writeFieldBegin("salt", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeBinary((*(this->salt)));
   xfer += oprot->writeFieldEnd();
 
   xfer += oprot->writeFieldStop();
@@ -382,7 +398,7 @@ uint32_t Aes_decrypt_presult::read(::apache::thrift::protocol::TProtocol* iprot)
   return xfer;
 }
 
-void AesClient::encrypt(std::string& _return, const std::string& plain)
+void AesClient::encrypt(AesEncryptResponse& _return, const std::string& plain)
 {
   send_encrypt(plain);
   recv_encrypt(_return);
@@ -402,7 +418,7 @@ void AesClient::send_encrypt(const std::string& plain)
   oprot_->getTransport()->flush();
 }
 
-void AesClient::recv_encrypt(std::string& _return)
+void AesClient::recv_encrypt(AesEncryptResponse& _return)
 {
 
   int32_t rseqid = 0;
@@ -440,19 +456,20 @@ void AesClient::recv_encrypt(std::string& _return)
   throw ::apache::thrift::TApplicationException(::apache::thrift::TApplicationException::MISSING_RESULT, "encrypt failed: unknown result");
 }
 
-void AesClient::decrypt(std::string& _return, const std::string& code)
+void AesClient::decrypt(std::string& _return, const std::string& code, const std::string& salt)
 {
-  send_decrypt(code);
+  send_decrypt(code, salt);
   recv_decrypt(_return);
 }
 
-void AesClient::send_decrypt(const std::string& code)
+void AesClient::send_decrypt(const std::string& code, const std::string& salt)
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("decrypt", ::apache::thrift::protocol::T_CALL, cseqid);
 
   Aes_decrypt_pargs args;
   args.code = &code;
+  args.salt = &salt;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();
@@ -594,7 +611,7 @@ void AesProcessor::process_decrypt(int32_t seqid, ::apache::thrift::protocol::TP
 
   Aes_decrypt_result result;
   try {
-    iface_->decrypt(result.success, args.code);
+    iface_->decrypt(result.success, args.code, args.salt);
     result.__isset.success = true;
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != nullptr) {
@@ -632,7 +649,7 @@ void AesProcessor::process_decrypt(int32_t seqid, ::apache::thrift::protocol::TP
   return processor;
 }
 
-void AesConcurrentClient::encrypt(std::string& _return, const std::string& plain)
+void AesConcurrentClient::encrypt(AesEncryptResponse& _return, const std::string& plain)
 {
   int32_t seqid = send_encrypt(plain);
   recv_encrypt(_return, seqid);
@@ -656,7 +673,7 @@ int32_t AesConcurrentClient::send_encrypt(const std::string& plain)
   return cseqid;
 }
 
-void AesConcurrentClient::recv_encrypt(std::string& _return, const int32_t seqid)
+void AesConcurrentClient::recv_encrypt(AesEncryptResponse& _return, const int32_t seqid)
 {
 
   int32_t rseqid = 0;
@@ -716,13 +733,13 @@ void AesConcurrentClient::recv_encrypt(std::string& _return, const int32_t seqid
   } // end while(true)
 }
 
-void AesConcurrentClient::decrypt(std::string& _return, const std::string& code)
+void AesConcurrentClient::decrypt(std::string& _return, const std::string& code, const std::string& salt)
 {
-  int32_t seqid = send_decrypt(code);
+  int32_t seqid = send_decrypt(code, salt);
   recv_decrypt(_return, seqid);
 }
 
-int32_t AesConcurrentClient::send_decrypt(const std::string& code)
+int32_t AesConcurrentClient::send_decrypt(const std::string& code, const std::string& salt)
 {
   int32_t cseqid = this->sync_->generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(this->sync_.get());
@@ -730,6 +747,7 @@ int32_t AesConcurrentClient::send_decrypt(const std::string& code)
 
   Aes_decrypt_pargs args;
   args.code = &code;
+  args.salt = &salt;
   args.write(oprot_);
 
   oprot_->writeMessageEnd();

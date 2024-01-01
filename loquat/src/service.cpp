@@ -116,16 +116,19 @@ void loquat::application::launch(const uint16_t port,
   server->serve();
 }
 
-void loquat::AesHandler::encrypt(std::string& code, const std::string& plain) {
+void loquat::AesHandler::encrypt(loquat::v1::AesEncryptResponse& response,
+                                 const std::string& plain) {
   spdlog::info("call {}", __PRETTY_FUNCTION__);
   loquat::Aes aes;
-  code = aes.encrypt(plain);
+  response.salt = loquat::random(32);
+  response.code = aes.encrypt(plain, response.salt);
 }
 
-void loquat::AesHandler::decrypt(std::string& plain, const std::string& code) {
+void loquat::AesHandler::decrypt(std::string& plain, const std::string& code,
+                                 const std::string& salt) {
   spdlog::info("call {}", __PRETTY_FUNCTION__);
   loquat::Aes aes;
-  plain = aes.decrypt(code);
+  plain = aes.decrypt(code, salt);
 }
 
 void loquat::HmacHandler::sign(std::string& code, const std::string& plain) {
@@ -147,10 +150,8 @@ void loquat::JwtHandler::sign(std::string& token, const std::string& issuer,
                               const std::string& payload) {
   spdlog::info("call {}", __PRETTY_FUNCTION__);
   loquat::Jwt jwt;
-  // TODO
-  token = audience.empty()
-              ? jwt.sign(subject, std::chrono::seconds(ttl))
-              : jwt.sign(subject, audience, std::chrono::seconds(ttl));
+  token =
+      jwt.sign(issuer, subject, audience, std::chrono::seconds(ttl), payload);
 }
 
 void loquat::JwtHandler::verify(loquat::v1::JwtVerfifyResponse& response,
@@ -159,9 +160,10 @@ void loquat::JwtHandler::verify(loquat::v1::JwtVerfifyResponse& response,
                                 const std::string& audience) {
   spdlog::info("call {}", __PRETTY_FUNCTION__);
   loquat::Jwt jwt;
-  // TODO
-  auto subject =
-      audience.empty() ? jwt.verify(token) : jwt.verify(token, audience);
+  const auto [subject, jwt_id, payload] = jwt.verify(token, issuer, audience);
+  response.subject = subject;
+  response.jwt_id = jwt_id;
+  response.payload = payload;
 }
 
 void loquat::HealthHandler::check() {

@@ -23,9 +23,12 @@ namespace loquat { namespace v1 {
 
 class JwtVerfifyResponse;
 
+class AesEncryptResponse;
+
 typedef struct _JwtVerfifyResponse__isset {
-  _JwtVerfifyResponse__isset() : subject(false), payload(false) {}
+  _JwtVerfifyResponse__isset() : subject(false), jwt_id(false), payload(false) {}
   bool subject :1;
+  bool jwt_id :1;
   bool payload :1;
 } _JwtVerfifyResponse__isset;
 
@@ -36,22 +39,28 @@ class JwtVerfifyResponse : public virtual ::apache::thrift::TBase {
   JwtVerfifyResponse& operator=(const JwtVerfifyResponse&);
   JwtVerfifyResponse() noexcept
                      : subject(),
+                       jwt_id(),
                        payload() {
   }
 
   virtual ~JwtVerfifyResponse() noexcept;
   std::string subject;
+  std::string jwt_id;
   std::string payload;
 
   _JwtVerfifyResponse__isset __isset;
 
   void __set_subject(const std::string& val);
 
+  void __set_jwt_id(const std::string& val);
+
   void __set_payload(const std::string& val);
 
   bool operator == (const JwtVerfifyResponse & rhs) const
   {
     if (!(subject == rhs.subject))
+      return false;
+    if (!(jwt_id == rhs.jwt_id))
       return false;
     if (!(payload == rhs.payload))
       return false;
@@ -72,6 +81,56 @@ class JwtVerfifyResponse : public virtual ::apache::thrift::TBase {
 void swap(JwtVerfifyResponse &a, JwtVerfifyResponse &b);
 
 std::ostream& operator<<(std::ostream& out, const JwtVerfifyResponse& obj);
+
+typedef struct _AesEncryptResponse__isset {
+  _AesEncryptResponse__isset() : code(false), salt(false) {}
+  bool code :1;
+  bool salt :1;
+} _AesEncryptResponse__isset;
+
+class AesEncryptResponse : public virtual ::apache::thrift::TBase {
+ public:
+
+  AesEncryptResponse(const AesEncryptResponse&);
+  AesEncryptResponse& operator=(const AesEncryptResponse&);
+  AesEncryptResponse() noexcept
+                     : code(),
+                       salt() {
+  }
+
+  virtual ~AesEncryptResponse() noexcept;
+  std::string code;
+  std::string salt;
+
+  _AesEncryptResponse__isset __isset;
+
+  void __set_code(const std::string& val);
+
+  void __set_salt(const std::string& val);
+
+  bool operator == (const AesEncryptResponse & rhs) const
+  {
+    if (!(code == rhs.code))
+      return false;
+    if (!(salt == rhs.salt))
+      return false;
+    return true;
+  }
+  bool operator != (const AesEncryptResponse &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const AesEncryptResponse & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot) override;
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const override;
+
+  virtual void printTo(std::ostream& out) const;
+};
+
+void swap(AesEncryptResponse &a, AesEncryptResponse &b);
+
+std::ostream& operator<<(std::ostream& out, const AesEncryptResponse& obj);
 
 }} // namespace
 

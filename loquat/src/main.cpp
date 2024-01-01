@@ -4,8 +4,13 @@
 #include <event2/event.h>
 #include <openssl/opensslv.h>
 #include <thrift/version.h>
+#include <tink/aead/aead_config.h>
 #include <tink/config/tink_config.h>
+#include <tink/hybrid/hybrid_config.h>
 #include <tink/jwt/jwt_mac_config.h>
+#include <tink/jwt/jwt_signature_config.h>
+#include <tink/mac/mac_config.h>
+#include <tink/signature/signature_config.h>
 #include <tink/version.h>
 #include <argparse/argparse.hpp>
 
@@ -29,8 +34,9 @@ int main(int argc, char** argv) {
     generate_token_command.add_argument("-y", "--years")
         .default_value(10)
         .scan<'i', int>();
+    generate_token_command.add_argument("-i", "--issuer").required();
     generate_token_command.add_argument("-s", "--subject").required();
-    generate_token_command.add_argument("-a", "--audience");
+    generate_token_command.add_argument("-a", "--audience").required();
   }
 
   argparse::ArgumentParser rpc_command("rpc");
@@ -82,9 +88,44 @@ int main(int argc, char** argv) {
     }
   }
   {
+    const auto status = crypto::tink::SignatureConfig::Register();
+    if (!status.ok()) {
+      spdlog::error("failed to register tink signature");
+      return EXIT_FAILURE;
+    }
+  }
+  {
+    const auto status = crypto::tink::MacConfig::Register();
+    if (!status.ok()) {
+      spdlog::error("failed to register tink mac");
+      return EXIT_FAILURE;
+    }
+  }
+  {
+    const auto status = crypto::tink::HybridConfig::Register();
+    if (!status.ok()) {
+      spdlog::error("failed to register tink hybird");
+      return EXIT_FAILURE;
+    }
+  }
+  {
+    const auto status = crypto::tink::AeadConfig::Register();
+    if (!status.ok()) {
+      spdlog::error("failed to register tink aead");
+      return EXIT_FAILURE;
+    }
+  }
+  {
     const auto status = crypto::tink::JwtMacRegister();
     if (!status.ok()) {
-      spdlog::error("failed to register tink-jwt");
+      spdlog::error("failed to register tink jwt-mac");
+      return EXIT_FAILURE;
+    }
+  }
+  {
+    const auto status = crypto::tink::JwtSignatureRegister();
+    if (!status.ok()) {
+      spdlog::error("failed to register tink jwt-signature");
       return EXIT_FAILURE;
     }
   }
@@ -105,19 +146,19 @@ int main(int argc, char** argv) {
 
   } else if (program.is_subcommand_used(generate_token_command)) {
     const int years = generate_token_command.get<int>("--years");
+    const std::string issuer =
+        generate_token_command.get<std::string>("--issuer");
     const std::string subject =
         generate_token_command.get<std::string>("--subject");
-    const std::optional<std::string> audience =
-        generate_token_command.present<std::string>("--audience");
-    spdlog::warn("generate token to (aud: {}, sub: {}) for {}-years",
-                 audience.value_or(""), subject, years);
+    std::string audience =
+        generate_token_command.get<std::string>("--audience");
+    spdlog::warn("generate token to (iss: {}, aud: {}, sub: {}) for {}-years",
+                 issuer, audience, subject, years);
 
     const auto ttl = std::chrono::duration_cast<std::chrono::seconds>(
         std::chrono::years(years));
     loquat::Jwt jwt;
-    const auto token = audience.has_value()
-                           ? jwt.sign(subject, audience.value(), ttl)
-                           : jwt.sign(subject, ttl);
+    const auto token = jwt.sign(issuer, subject, audience, ttl);
     std::cout << token << std::endl;
   }
 

@@ -60,7 +60,8 @@ set_target_properties(loquat PROPERTIES LINK_FLAGS_RELEASE -s)
 
 target_link_libraries(loquat gourd
   ${OPENSSL_LIBRARIES}
-  tink::static tink::jwt::jwt_key_templates tink::jwt::jwt_mac tink::jwt::jwt_mac_config
+  tink::static
+  tink::jwt::jwt_key_templates tink::jwt::jwt_mac tink::jwt::jwt_mac_config tink::jwt::jwt_signature_config
 )
 
 target_include_directories(loquat PUBLIC
