@@ -31,9 +31,6 @@ int main(int argc, char** argv) {
         .scan<'i', int>();
     generate_token_command.add_argument("-s", "--subject").required();
     generate_token_command.add_argument("-a", "--audience");
-    generate_token_command.add_argument("-k", "--key-id")
-        .default_value(loquat::PROJECT_NAME)
-        .required();
   }
 
   argparse::ArgumentParser rpc_command("rpc");
@@ -108,18 +105,16 @@ int main(int argc, char** argv) {
 
   } else if (program.is_subcommand_used(generate_token_command)) {
     const int years = generate_token_command.get<int>("--years");
-    const std::string key_id =
-        generate_token_command.get<std::string>("--key-id");
     const std::string subject =
         generate_token_command.get<std::string>("--subject");
     const std::optional<std::string> audience =
         generate_token_command.present<std::string>("--audience");
-    spdlog::warn("generate token to (kid: {}, aud: {}, sub: {}) for {}-years",
-                 key_id, audience.value_or(""), subject, years);
+    spdlog::warn("generate token to (aud: {}, sub: {}) for {}-years",
+                 audience.value_or(""), subject, years);
 
     const auto ttl = std::chrono::duration_cast<std::chrono::seconds>(
         std::chrono::years(years));
-    loquat::Jwt jwt(key_id);
+    loquat::Jwt jwt;
     const auto token = audience.has_value()
                            ? jwt.sign(subject, audience.value(), ttl)
                            : jwt.sign(subject, ttl);

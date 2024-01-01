@@ -8,7 +8,7 @@ $ cd build
 # for ubuntu
 $ sudo apt install -y cmake g++-12 golang libunwind-dev libboost-all-dev libevent-dev
 # for archlinux
-$ sudo pacman -S cmake gcc12 go libunwind boost libevent
+$ sudo pacman -S --needed cmake gcc12 go libunwind boost libevent
 
 $ CC=gcc-12 CXX=g++-12 cmake -DCMAKE_BUILD_TYPE=Release \
     -DABSL_PROPAGATE_CXX_STD=ON -DTINK_USE_SYSTEM_OPENSSL=ON \

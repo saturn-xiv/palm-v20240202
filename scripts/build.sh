@@ -205,7 +205,7 @@ function build_loquat() {
         -DABSL_PROPAGATE_CXX_STD=ON -DTINK_USE_SYSTEM_OPENSSL=ON \
         -DBUILD_COMPILER=OFF -DWITH_OPENSSL=ON -DBUILD_JAVA=OFF -DBUILD_JAVASCRIPT=OFF -DBUILD_NODEJS=OFF -DBUILD_PYTHON=OFF \
         -B $build_root -S $WORKSPACE/loquat
-    make -C $build_root
+    make -j $(nproc --ignore=2) -C $build_root
 
     mkdir -p $TARGET_DIR/bin/$arch
     cp $build_root/loquat $TARGET_DIR/bin/$arch/
