@@ -14,21 +14,21 @@ import java.util.concurrent.TimeUnit;
 @Component("palm.musa.helper.jwt")
 public class JwtHelper {
 
-    public String verify(@NotNull final String token) throws TException {
+    public String verify(@NotNull final String token, @NotNull final String issuer, @NotNull final String audience) throws TException {
         var jwt = loquat.jwt();
-        return jwt.verify(loquat.token, token, AUDIENCE);
+        final var it = jwt.verify(token, issuer, audience);
+        return it.payload;
     }
 
-    public String sign(final String subject, final int years) throws TException {
+    public String sign(@NotNull final String issuer, @NotNull final String subject, @NotNull final String audience, final int years, @NotNull final String payload) throws TException {
         var jwt = loquat.jwt();
 
         LocalDate today = LocalDate.now();
         LocalDate exp = today.plusYears(years);
         return jwt.sign(
-                loquat.token,
-                subject,
-                AUDIENCE,
-                TimeUnit.SECONDS.convert(ChronoUnit.DAYS.between(today, exp), TimeUnit.DAYS)
+                issuer, subject, audience,
+                TimeUnit.SECONDS.convert(ChronoUnit.DAYS.between(today, exp), TimeUnit.DAYS),
+                payload
         );
     }
 
@@ -37,6 +37,5 @@ public class JwtHelper {
     LoquatClient loquat;
 
 
-    public final String AUDIENCE = getClass().getPackage().getImplementationTitle();
     private final static Logger logger = LoggerFactory.getLogger(JwtHelper.class);
 }

@@ -46,11 +46,9 @@ public class LoquatClient {
     String host;
     @Value("${app.loquat.port}")
     int port;
-    @Value("${app.loquat.token}")
-    String token;
 
-    private final static String JWT = "N6loquat10JwtHandlerE";
-    private final static String AES = "N6loquat10AesHandlerE";
-    private final static String HMAC = "N6loquat11HmacHandlerE";
-    private final static String HEALTH = "N6loquat13HealthHandlerE";
+    private final static String JWT = "N6loquat2v15JwtIfE";
+    private final static String AES = "N6loquat2v15AesIfE";
+    private final static String HMAC = "N6loquat2v16HmacIfE";
+    private final static String HEALTH = "N6loquat2v18HealthIfE";
 }

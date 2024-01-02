@@ -97,11 +97,17 @@ function generate_thrift_for_cpp() {
 }
 
 function generate_musa() {
-    echo "generate gRPC for musa"
-
     cd $WORKSPACE
     local target=musa/src/main/java
 
+    echo "generate loquat protocol for musa"
+    local loquat_target=$target/com/github/saturn_xiv/palm/plugins/loquat/v1
+    if [ -d $loquat_target ]; then
+        rm -r $loquat_target
+    fi
+    thrift -out $target --gen java -r $PALM_PROTOCOLS/loquat.thrift
+
+    echo "generate gRPC for musa"
     local musa_target=$target/com/github/saturn_xiv/palm/plugins/musa/v1
     if [ -d $musa_target ]; then
         rm -r $musa_target
@@ -117,6 +123,13 @@ function generate_musa() {
 function generate_gardenia() {
     cd $WORKSPACE
     local target=gardenia/src/main/java
+
+    echo "generate loquat protocol for gardenia"
+    local loquat_target=$target/com/github/saturn_xiv/palm/plugins/loquat/v1
+    if [ -d $loquat_target ]; then
+        rm -r $loquat_target
+    fi
+    thrift -out $target --gen java -r $PALM_PROTOCOLS/loquat.thrift
 
     echo "generate gRPC for gardenia"
     local gardenia_target=$target/com/github/saturn_xiv/palm/plugins/gardenia/v1
