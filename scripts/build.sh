@@ -163,10 +163,8 @@ function build_morus() {
     fi
     npx webpack --mode=production
 
-    mkdir -p $TARGET_DIR/morus
-    cp README.md config.json.orig \
-        dist/morus-*.js $TARGET_DIR/morus/
-
+    mv dist $TARGET_DIR/morus
+    cp README.md config.json.orig $TARGET_DIR/morus/
 }
 
 function build_musa() {
@@ -267,8 +265,8 @@ build_gardenia
 # ---------------------------
 cd $WORKSPACE/casbin-server/
 # diff -u casbin-server/proto/casbin.proto palm/protocols/casbin.proto >scripts/casbin/proto.patch
-patch proto/casbin.proto $WORKSPACE/scripts/proto.patch
-# git diff server > ../scripts/casbin/enforcer.diff
+patch proto/casbin.proto $WORKSPACE/scripts/casbin/proto.patch
+# git diff server > ../scripts/casbin/enforcer.patch
 git apply $WORKSPACE/scripts/casbin/enforcer.patch
 # https://github.com/casbin/casbin-server#protobuf-if-not-installed
 protoc -I proto \
