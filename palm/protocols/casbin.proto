@@ -20,7 +20,7 @@ option java_outer_classname = "CasbinProto";
 option go_package = "./;proto";
 option csharp_namespace = "CasbinOrg.Grpc";
 
-package palm.lily.v1;
+package palm.casbin.v1;
 
 // The Casbin service definition.
 service Casbin {

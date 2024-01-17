@@ -13,5 +13,5 @@ impl Query {
 #[derive(Serialize, Deserialize, Default, Debug, Clone)]
 pub struct Response {
     pub access_token: String,
-    pub expires_in: usize,
+    pub expires_in: u64,
 }

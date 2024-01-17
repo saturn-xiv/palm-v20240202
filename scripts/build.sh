@@ -280,8 +280,10 @@ build_casbin_server amd64 x86_64
 build_casbin_server arm64 aarch64
 build_casbin_server arm armhf
 build_casbin_server riscv64 riscv64
+mkdir -p $TARGET_DIR/casbin
+cp examples/rbac_model.conf $TARGET_DIR/casbin/
+cp config/connection_config_psql_example.json $TARGET_DIR/casbin/config-orig.json
 git checkout -f
-
 # ---------------------------
 
 if [ $UBUNTU_CODENAME == "jammy" ]; then

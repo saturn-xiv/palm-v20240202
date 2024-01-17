@@ -105,7 +105,7 @@ pub trait Client {
         ch: &mut RedisClusterConnection,
         openid: &str,
         access_token: &str,
-        expires_in: usize,
+        expires_in: u64,
         refresh_token: &str,
     ) -> Result<()>;
 }
@@ -169,7 +169,7 @@ impl Client for super::Client {
         cache: &mut RedisClusterConnection,
         openid: &str,
         access_token: &str,
-        expires_in: usize,
+        expires_in: u64,
         refresh_token: &str,
     ) -> Result<()> {
         let access_token_key = self.access_token_key(openid);

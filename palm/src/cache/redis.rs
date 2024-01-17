@@ -35,7 +35,12 @@ pub struct Config {
 
 impl Config {
     pub fn open(&self) -> Result<Pool> {
-        let client = ClusterClient::new(self.nodes.iter().map(|x| x.to_string()).collect())?;
+        let client = ClusterClient::new(
+            self.nodes
+                .iter()
+                .map(|x| x.to_string())
+                .collect::<Vec<String>>(),
+        )?;
 
         let pool = r2d2::Pool::builder()
             .max_size(self.pool.unwrap_or(32))
@@ -145,7 +150,7 @@ impl super::Provider for ClusterConnection {
         self.set_ex(
             &key,
             flexbuffers::to_vec(val)?.as_slice(),
-            ttl.num_seconds() as usize,
+            ttl.num_seconds() as u64,
         )?;
         Ok(())
     }
@@ -177,7 +182,7 @@ impl super::Provider for ClusterConnection {
         self.set_ex(
             &key,
             flexbuffers::to_vec(&val)?.as_slice(),
-            ttl.num_seconds() as usize,
+            ttl.num_seconds() as u64,
         )?;
         Ok(val)
     }

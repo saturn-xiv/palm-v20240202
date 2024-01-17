@@ -121,18 +121,14 @@ pub mod crypto;
 pub mod currency;
 pub mod env;
 pub mod google;
-pub mod handlers;
 pub mod jwt;
 pub mod line;
 pub mod minio;
 pub mod musa;
 pub mod network;
-pub mod nut;
-pub mod ops;
 pub mod orchid;
 pub mod parser;
 pub mod queue;
-pub mod rbac;
 pub mod result;
 pub mod search;
 pub mod seo;
@@ -304,40 +300,16 @@ pub trait ToXml {
     fn write<W: Write>(&self, wrt: &mut EventWriter<W>) -> XmlWriterResult<()>;
 }
 
-pub mod babel {
+pub mod casbin {
     #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
     pub mod v1 {
-        tonic::include_proto!("palm.babel.v1");
-    }
-}
-pub mod cbeta {
-    #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
-    pub mod v1 {
-        tonic::include_proto!("palm.cbeta.v1");
+        tonic::include_proto!("palm.casbin.v1");
     }
 }
 pub mod gardenia {
     #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
     pub mod v1 {
         tonic::include_proto!("palm.gardenia.v1");
-    }
-}
-pub mod cms {
-    #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
-    pub mod v1 {
-        tonic::include_proto!("palm.cms.v1");
-    }
-}
-pub mod courses {
-    #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
-    pub mod v1 {
-        tonic::include_proto!("palm.courses.v1");
-    }
-}
-pub mod cscd {
-    #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
-    pub mod v1 {
-        tonic::include_proto!("palm.cscd.v1");
     }
 }
 pub mod lily {
@@ -350,17 +322,5 @@ pub mod morus {
     #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
     pub mod v1 {
         tonic::include_proto!("palm.morus.v1");
-    }
-}
-pub mod forum {
-    #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
-    pub mod v1 {
-        tonic::include_proto!("palm.forum.v1");
-    }
-}
-pub mod mall {
-    #[allow(clippy::match_single_binding, clippy::derive_partial_eq_without_eq)]
-    pub mod v1 {
-        tonic::include_proto!("palm.mall.v1");
     }
 }

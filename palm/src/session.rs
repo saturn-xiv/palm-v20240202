@@ -1,13 +1,8 @@
-use actix_web::{dev::Payload, Error, FromRequest, HttpRequest};
-use futures::future::{ok, Ready};
 use hyper::header::{ACCEPT_LANGUAGE, AUTHORIZATION, USER_AGENT};
 use language_tags::LanguageTag;
 use tonic::{metadata::MetadataMap, Request};
 
-use super::{
-    handlers::{locale::Locale, peer::ClientIp, token::Token},
-    jwt::BEARER,
-};
+use super::jwt::BEARER;
 
 pub struct Session {
     pub lang: String,
@@ -57,23 +52,5 @@ impl Session {
             client_ip,
             token: Self::detect_token(meta),
         }
-    }
-}
-
-impl FromRequest for Session {
-    type Error = Error;
-    type Future = Ready<Result<Self, Error>>;
-
-    fn from_request(req: &HttpRequest, _payload: &mut Payload) -> Self::Future {
-        let lang = Locale::detect(req).map_or(Self::DEFAULT_LANG.to_string(), |x| x.to_string());
-        let client_ip =
-            ClientIp::detect(req).map_or(Self::DEFAULT_CLIENT_IP.to_string(), |x| x.to_string());
-        let token = Token::detect(req);
-
-        ok(Self {
-            lang,
-            client_ip,
-            token,
-        })
     }
 }

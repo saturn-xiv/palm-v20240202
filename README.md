@@ -1,4 +1,4 @@
-# palm
+# PALM
 
 A total free education &amp; translation solution.
 
@@ -26,6 +26,8 @@ A total free education &amp; translation solution.
 
 - Generate a random secret key: `openssl rand -base64 32`
 - Generate a random password: `pwgen 32 1`
+- Start casbin-server `CONNECTION_CONFIG_PATH=./casbin/config.json ./bin/\$(uname -p)/bin/casbin -port 8080
+`
 
 ## Documents
 
